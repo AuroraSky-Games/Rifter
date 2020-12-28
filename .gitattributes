@@ -17,6 +17,7 @@
 *.png binary
 *.fbx binary
 *.psd binary
+*.blend binary
 
 *.sln text eol=crlf
 
