@@ -89,4 +89,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/3rd Party/TopDownEngine/Demos/Colonel/Colonel.unity
     guid: 7a42340ee81c11b40a381cee4cacf3c9
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: 0be265bae0d64f34386a89f3342232a1,
+      type: 2}
