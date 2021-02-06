@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
         _rigidbody2D = GetComponent<Rigidbody2D>();
     }
 
-    void LateUpdate()
+    void Update()
     {
         
         Vector2 move = new Vector2(movementInput.x, movementInput.y);
