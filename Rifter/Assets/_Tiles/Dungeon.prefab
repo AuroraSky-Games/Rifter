@@ -1035,6 +1035,16 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
+  - first: {x: 3, y: 17, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 44
+      m_TileSpriteIndex: 53
+      m_TileMatrixIndex: 1
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
   m_AnimatedTiles: {}
   m_TileAssetArray:
   - m_RefCount: 0
@@ -1125,7 +1135,7 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 5f0b1f563fd718641b5ab1a5b347a96f, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 43d746488792e6a469ad35a75fb25c8a, type: 2}
-  - m_RefCount: 1
+  - m_RefCount: 2
     m_Data: {fileID: 11400000, guid: 466f4ec4f9081e9418d3742f74dd207e, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 5981ebdd1c0278a4a81289fdbf86b3bc, type: 2}
@@ -1373,7 +1383,7 @@ Tilemap:
   - m_RefCount: 1
     m_Data: {fileID: -8896503210687654285, guid: ade256a416c4a0243b66e21711eca79e,
       type: 3}
-  - m_RefCount: 1
+  - m_RefCount: 2
     m_Data: {fileID: 2314349856743053192, guid: ade256a416c4a0243b66e21711eca79e,
       type: 3}
   - m_RefCount: 2
@@ -1502,14 +1512,32 @@ Tilemap:
       e31: 0
       e32: 0
       e33: 1
+  - m_RefCount: 1
+    m_Data:
+      e00: -1
+      e01: 0.00000008742278
+      e02: 0
+      e03: 0
+      e10: -0.00000008742278
+      e11: -1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
   m_TileColorArray:
-  - m_RefCount: 95
+  - m_RefCount: 96
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Origin: {x: -2, y: -9, z: 0}
-  m_Size: {x: 36, y: 15, z: 1}
+  m_Size: {x: 36, y: 27, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
   m_TileOrientation: 0
   m_TileOrientationMatrix:
@@ -1577,7 +1605,7 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
---- !u!114 &8400666873448775277
+--- !u!114 &1245859678587524599
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
