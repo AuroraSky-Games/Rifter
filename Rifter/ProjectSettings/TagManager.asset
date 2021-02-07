@@ -33,7 +33,7 @@ TagManager:
   - Camera2
   - Camera3
   - Camera4
-  - 
+  - Statues
   - 
   - 
   - 
@@ -57,6 +57,9 @@ TagManager:
     locked: 0
   - name: Characters
     uniqueID: 47421343
+    locked: 0
+  - name: Level Objects
+    uniqueID: 3879479151
     locked: 0
   - name: Above
     uniqueID: 961700441
