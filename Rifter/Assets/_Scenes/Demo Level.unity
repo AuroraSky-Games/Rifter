@@ -527,6 +527,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  <OnFireButtonPressed>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
+  <OnFireButtonReleased>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
   <MovementData>k__BackingField: {fileID: 11400000, guid: 3368f1f3b214e68419fafd4b6dbad195,
     type: 2}
 --- !u!4 &702205985
@@ -627,7 +633,19 @@ MonoBehaviour:
     m_ActionId: b0816abf-7319-4d2e-8234-db2576ac8b16
     m_ActionName: Menu Controls/New action
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 80c3d39c-cbe5-4aef-b651-55bbc164f6f8
     m_ActionName: Player Controls/AIM[/Mouse/position]
   m_NeverAutoSwitchControlSchemes: 0
@@ -18437,7 +18455,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1829961408}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.04, y: -0.36, z: 0}
+  m_LocalPosition: {x: 0.02, y: -0.36, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1905256212}

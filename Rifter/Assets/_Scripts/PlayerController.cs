@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
 {
 
     private Camera mainCamera;
+    private bool fireButtonDown = false;
     
     [field: SerializeField]
     private float currentVelocity = 5;
@@ -21,6 +22,12 @@ public class PlayerController : MonoBehaviour
     
     [field: SerializeField]
     public UnityEvent<Vector2> OnPointerChange { get; set; }
+    
+    [field: SerializeField]
+    public UnityEvent OnFireButtonPressed { get; set; }
+    
+    [field: SerializeField]
+    public UnityEvent OnFireButtonReleased { get; set; }
 
     [field: SerializeField]
     public SOMovementData MovementData { get; set; }
@@ -42,12 +49,15 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        
         Vector2 move = new Vector2(movementInput.x, movementInput.y);
         GetPointerInput();
-
         moveAgent(move);
-        
+        GetFireInput();
+    }
+
+    private void GetFireInput()
+    {
+        throw new NotImplementedException();
     }
 
     public void GetPointerInput()
