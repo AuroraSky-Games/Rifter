@@ -10,8 +10,7 @@ public class PlayerController : MonoBehaviour
 {
 
     private Camera mainCamera;
-    private bool fireButtonDown = false;
-    
+
     [field: SerializeField]
     private float currentVelocity = 5;
 
@@ -22,23 +21,23 @@ public class PlayerController : MonoBehaviour
     
     [field: SerializeField]
     public UnityEvent<Vector2> OnPointerChange { get; set; }
-    
-    [field: SerializeField]
-    public UnityEvent OnFireButtonPressed { get; set; }
-    
-    [field: SerializeField]
-    public UnityEvent OnFireButtonReleased { get; set; }
 
     [field: SerializeField]
     public SOMovementData MovementData { get; set; }
     
     protected Rigidbody2D _rigidbody2D;
     private Vector2 movementInput = Vector2.zero;
+    private Vector2 pointerInput = Vector2.zero;
 
     //Used in editor to read input from new input system. 
     public void OnMove(InputAction.CallbackContext context)
     {
         movementInput = context.ReadValue<Vector2>();
+    }
+
+    public void OnPointerMovement(InputAction.CallbackContext context)
+    {
+        pointerInput = context.ReadValue<Vector2>();
     }
 
     private void Start()
@@ -50,14 +49,11 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Vector2 move = new Vector2(movementInput.x, movementInput.y);
+        Debug.Log(move);
+        var pointer = new Vector3(pointerInput.x, pointerInput.y);
+        Debug.Log("This is mouse" + pointer);
         GetPointerInput();
         moveAgent(move);
-        GetFireInput();
-    }
-
-    private void GetFireInput()
-    {
-        throw new NotImplementedException();
     }
 
     public void GetPointerInput()

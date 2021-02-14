@@ -18,6 +18,7 @@ public class AgentWeapon : MonoBehaviour
 
     public virtual void AimWeapon(Vector2 pointerPositition)
     {
+        
         //Calculating weapon rotation for aim
         var aimDirection = (Vector3) pointerPositition - transform.position;
         desiredAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;

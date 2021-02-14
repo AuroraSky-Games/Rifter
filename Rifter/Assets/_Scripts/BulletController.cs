@@ -10,7 +10,7 @@ public class BulletController : MonoBehaviour
 
     private void OnEnable()
     {
-        StartCoroutine(DestroyBulletAfterTime());
+        StartCoroutine(DestroyBulletAfterTime());   
     }
 
     IEnumerator DestroyBulletAfterTime()

@@ -2,7 +2,7 @@
 
 namespace _Scripts.Player
 {
-    public class PlayerWeapon : AgentWeapon
+    public class PlayerWeapon : WeaponController
     {
         
     }

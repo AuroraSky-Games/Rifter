@@ -28,7 +28,7 @@ public class @GameInput : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""Attack"",
-                    ""type"": ""Button"",
+                    ""type"": ""PassThrough"",
                     ""id"": ""8906ad63-0904-4675-b4fc-ff2cff441b4f"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
