@@ -5,7 +5,5 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Weapons/WeaponData")]
 public class SOWeaponData : ScriptableObject
 {
-    
-    
-    
+    public int Ammocapacity { get; set; }
 }
