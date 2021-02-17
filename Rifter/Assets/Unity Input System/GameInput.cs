@@ -41,6 +41,14 @@ public class @GameInput : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Reload"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""0f329658-dbc6-416f-8c7e-0a9f3965293b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -151,6 +159,17 @@ public class @GameInput : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""AIM"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""aa23eba6-03b5-4de9-9b42-6c85ac2a2840"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Reload"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -268,6 +287,7 @@ public class @GameInput : IInputActionCollection, IDisposable
         m_PlayerControls_Movement = m_PlayerControls.FindAction("Movement", throwIfNotFound: true);
         m_PlayerControls_Attack = m_PlayerControls.FindAction("Attack", throwIfNotFound: true);
         m_PlayerControls_AIM = m_PlayerControls.FindAction("AIM", throwIfNotFound: true);
+        m_PlayerControls_Reload = m_PlayerControls.FindAction("Reload", throwIfNotFound: true);
         // Inventory Controls
         m_InventoryControls = asset.FindActionMap("Inventory Controls", throwIfNotFound: true);
         m_InventoryControls_Newaction = m_InventoryControls.FindAction("New action", throwIfNotFound: true);
@@ -329,6 +349,7 @@ public class @GameInput : IInputActionCollection, IDisposable
     private readonly InputAction m_PlayerControls_Movement;
     private readonly InputAction m_PlayerControls_Attack;
     private readonly InputAction m_PlayerControls_AIM;
+    private readonly InputAction m_PlayerControls_Reload;
     public struct PlayerControlsActions
     {
         private @GameInput m_Wrapper;
@@ -336,6 +357,7 @@ public class @GameInput : IInputActionCollection, IDisposable
         public InputAction @Movement => m_Wrapper.m_PlayerControls_Movement;
         public InputAction @Attack => m_Wrapper.m_PlayerControls_Attack;
         public InputAction @AIM => m_Wrapper.m_PlayerControls_AIM;
+        public InputAction @Reload => m_Wrapper.m_PlayerControls_Reload;
         public InputActionMap Get() { return m_Wrapper.m_PlayerControls; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -354,6 +376,9 @@ public class @GameInput : IInputActionCollection, IDisposable
                 @AIM.started -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnAIM;
                 @AIM.performed -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnAIM;
                 @AIM.canceled -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnAIM;
+                @Reload.started -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnReload;
+                @Reload.performed -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnReload;
+                @Reload.canceled -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnReload;
             }
             m_Wrapper.m_PlayerControlsActionsCallbackInterface = instance;
             if (instance != null)
@@ -367,6 +392,9 @@ public class @GameInput : IInputActionCollection, IDisposable
                 @AIM.started += instance.OnAIM;
                 @AIM.performed += instance.OnAIM;
                 @AIM.canceled += instance.OnAIM;
+                @Reload.started += instance.OnReload;
+                @Reload.performed += instance.OnReload;
+                @Reload.canceled += instance.OnReload;
             }
         }
     }
@@ -493,6 +521,7 @@ public class @GameInput : IInputActionCollection, IDisposable
         void OnMovement(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
         void OnAIM(InputAction.CallbackContext context);
+        void OnReload(InputAction.CallbackContext context);
     }
     public interface IInventoryControlsActions
     {

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using _Scripts.Weapons;
+using UnityEngine;
 
 namespace _Scripts.Player
 {
