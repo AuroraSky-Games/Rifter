@@ -15,7 +15,7 @@
                 },
                 {
                     "name": "Attack",
-                    "type": "PassThrough",
+                    "type": "Button",
                     "id": "8906ad63-0904-4675-b4fc-ff2cff441b4f",
                     "expectedControlType": "Button",
                     "processors": "",
@@ -31,8 +31,16 @@
                 },
                 {
                     "name": "Reload",
-                    "type": "PassThrough",
+                    "type": "Button",
                     "id": "0f329658-dbc6-416f-8c7e-0a9f3965293b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Block",
+                    "type": "Button",
+                    "id": "65e830d7-c38f-4569-914d-bda52b040df6",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -43,7 +51,7 @@
                     "name": "",
                     "id": "2057fb70-f50c-4e5d-92d2-aef142bd6ef2",
                     "path": "<Mouse>/leftButton",
-                    "interactions": "",
+                    "interactions": "Press",
                     "processors": "",
                     "groups": "",
                     "action": "Attack",
@@ -157,6 +165,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Reload",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "96d12fae-54fa-4175-a6c3-002f00257e63",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "Hold",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Block",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

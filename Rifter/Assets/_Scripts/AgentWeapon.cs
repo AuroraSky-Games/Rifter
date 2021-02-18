@@ -16,11 +16,11 @@ public class AgentWeapon : MonoBehaviour
         weaponRenderer = GetComponent<SpriteRenderer>();
     }
 
-    public virtual void AimWeapon(Vector2 pointerPositition)
+    public virtual void AimWeapon(Vector2 pointerPosition)
     {
         
         //Calculating weapon rotation for aim
-        var aimDirection = (Vector3) pointerPositition - transform.position;
+        var aimDirection = (Vector3) pointerPosition - transform.position;
         desiredAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.AngleAxis(desiredAngle, Vector3.forward);
     }

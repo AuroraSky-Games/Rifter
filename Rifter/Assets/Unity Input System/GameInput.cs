@@ -28,7 +28,7 @@ public class @GameInput : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""Attack"",
-                    ""type"": ""PassThrough"",
+                    ""type"": ""Button"",
                     ""id"": ""8906ad63-0904-4675-b4fc-ff2cff441b4f"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
@@ -44,8 +44,16 @@ public class @GameInput : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""Reload"",
-                    ""type"": ""PassThrough"",
+                    ""type"": ""Button"",
                     ""id"": ""0f329658-dbc6-416f-8c7e-0a9f3965293b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Block"",
+                    ""type"": ""Button"",
+                    ""id"": ""65e830d7-c38f-4569-914d-bda52b040df6"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -56,7 +64,7 @@ public class @GameInput : IInputActionCollection, IDisposable
                     ""name"": """",
                     ""id"": ""2057fb70-f50c-4e5d-92d2-aef142bd6ef2"",
                     ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": """",
+                    ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Attack"",
@@ -170,6 +178,17 @@ public class @GameInput : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Reload"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""96d12fae-54fa-4175-a6c3-002f00257e63"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": ""Hold"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Block"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -288,6 +307,7 @@ public class @GameInput : IInputActionCollection, IDisposable
         m_PlayerControls_Attack = m_PlayerControls.FindAction("Attack", throwIfNotFound: true);
         m_PlayerControls_AIM = m_PlayerControls.FindAction("AIM", throwIfNotFound: true);
         m_PlayerControls_Reload = m_PlayerControls.FindAction("Reload", throwIfNotFound: true);
+        m_PlayerControls_Block = m_PlayerControls.FindAction("Block", throwIfNotFound: true);
         // Inventory Controls
         m_InventoryControls = asset.FindActionMap("Inventory Controls", throwIfNotFound: true);
         m_InventoryControls_Newaction = m_InventoryControls.FindAction("New action", throwIfNotFound: true);
@@ -350,6 +370,7 @@ public class @GameInput : IInputActionCollection, IDisposable
     private readonly InputAction m_PlayerControls_Attack;
     private readonly InputAction m_PlayerControls_AIM;
     private readonly InputAction m_PlayerControls_Reload;
+    private readonly InputAction m_PlayerControls_Block;
     public struct PlayerControlsActions
     {
         private @GameInput m_Wrapper;
@@ -358,6 +379,7 @@ public class @GameInput : IInputActionCollection, IDisposable
         public InputAction @Attack => m_Wrapper.m_PlayerControls_Attack;
         public InputAction @AIM => m_Wrapper.m_PlayerControls_AIM;
         public InputAction @Reload => m_Wrapper.m_PlayerControls_Reload;
+        public InputAction @Block => m_Wrapper.m_PlayerControls_Block;
         public InputActionMap Get() { return m_Wrapper.m_PlayerControls; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -379,6 +401,9 @@ public class @GameInput : IInputActionCollection, IDisposable
                 @Reload.started -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnReload;
                 @Reload.performed -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnReload;
                 @Reload.canceled -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnReload;
+                @Block.started -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnBlock;
+                @Block.performed -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnBlock;
+                @Block.canceled -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnBlock;
             }
             m_Wrapper.m_PlayerControlsActionsCallbackInterface = instance;
             if (instance != null)
@@ -395,6 +420,9 @@ public class @GameInput : IInputActionCollection, IDisposable
                 @Reload.started += instance.OnReload;
                 @Reload.performed += instance.OnReload;
                 @Reload.canceled += instance.OnReload;
+                @Block.started += instance.OnBlock;
+                @Block.performed += instance.OnBlock;
+                @Block.canceled += instance.OnBlock;
             }
         }
     }
@@ -522,6 +550,7 @@ public class @GameInput : IInputActionCollection, IDisposable
         void OnAttack(InputAction.CallbackContext context);
         void OnAIM(InputAction.CallbackContext context);
         void OnReload(InputAction.CallbackContext context);
+        void OnBlock(InputAction.CallbackContext context);
     }
     public interface IInventoryControlsActions
     {

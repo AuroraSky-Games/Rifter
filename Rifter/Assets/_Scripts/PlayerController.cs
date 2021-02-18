@@ -49,9 +49,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Vector2 move = new Vector2(movementInput.x, movementInput.y);
-        Debug.Log(move);
         var pointer = new Vector3(pointerInput.x, pointerInput.y);
-        Debug.Log("This is mouse" + pointer);
         GetPointerInput();
         moveAgent(move);
     }
