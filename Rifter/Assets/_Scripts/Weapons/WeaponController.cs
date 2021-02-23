@@ -1,23 +1,42 @@
 using System.Collections;
+using _Scriptable_Objects;
 using UnityEngine;
 using UnityEngine.Events;
 
 namespace _Scripts.Weapons
 {
+    [RequireComponent(typeof(SpriteRenderer))]
     public class WeaponController : MonoBehaviour
     {
         private GameInput _input;
         private bool _canShoot = false;
         private Camera _main;
-    
+        private float _weaponDelay;
+        private int _ammo;
+
+        [SerializeField] protected GameObject muzzle; 
+        [SerializeField] private SOWeaponData soWeaponData;
         [SerializeField] private GameObject bullet;
         [SerializeField] private Transform bulletDirection;
-        [SerializeField] private float shotTimeSpace = 5f;
         [SerializeField] protected SpriteRenderer weaponRenderer;
-        [SerializeField] protected int loadedAmmo = 10;
         [SerializeField] protected bool reloadCoroutine = false;
+
+        //Unity Events
+        
         [SerializeField] public UnityEvent OnShoot { get; set; }
         [SerializeField] public UnityEvent OnShootNoAmmo { get; set; }
+
+        private int Ammo
+        {
+            get => _ammo;
+            set => _ammo = Mathf.Clamp(value, 0, soWeaponData.AmmoCapacity);
+        }
+
+        private float WeaponDelay
+        {
+            get => _weaponDelay;
+            set => _weaponDelay = Mathf.Clamp(value, 0, soWeaponData.WeaponDelay);
+        }
 
         private void OnEnable()
         {
@@ -38,9 +57,10 @@ namespace _Scripts.Weapons
         private void Start()
         {
             _main = Camera.main;
+            Ammo = soWeaponData.AmmoCapacity;
+            WeaponDelay = soWeaponData.WeaponDelay;
             _input.PlayerControls.Attack.performed += _ => PlayerShoot();
             _input.PlayerControls.Reload.performed += _ => Reload();
-            _input.PlayerControls.Block.performed += _ => Block();
         }
         
         private void Update()
@@ -60,45 +80,64 @@ namespace _Scripts.Weapons
 
         private void PlayerShoot()
         {
-            StartCoroutine(CanShoot());
+            CanShoot();
 
             if (_canShoot == true && reloadCoroutine == false)
             {
                 var mousePosition = _input.PlayerControls.AIM.ReadValue<Vector2>();
                 mousePosition = _main.ScreenToWorldPoint(mousePosition);
-                var shot = Instantiate(bullet, bulletDirection.position, bulletDirection.rotation);
-                shot.SetActive(true);
-                loadedAmmo -= 1;
-                Debug.Log("Shots lefts " + loadedAmmo);
+
+                OnShoot?.Invoke();
+                
+                for (var i = 0; i < soWeaponData.GetBulletCountToSpawn(); i++)
+                {
+                    ShootBullet();
+                    Ammo--;
+                    Debug.Log("Shots lefts " + Ammo);
+                }
+
+                StartCoroutine(DelayNextShoot());
             }
-            
+            else
+            {
+                OnShootNoAmmo?.Invoke();
+            }
         }
 
-        private IEnumerator CanShoot()
+        private IEnumerator DelayNextShoot()
         {
-            _canShoot = loadedAmmo > 0;
+            yield return new WaitForSeconds(WeaponDelay);
+        }
 
-            yield return new WaitForSeconds(shotTimeSpace);
+        private void ShootBullet()
+        {
+            var shot = Instantiate(bullet, bulletDirection.position, bulletDirection.rotation);
+            shot.SetActive(true);
+        }
+
+        private bool CanShoot()
+        {
+            if (Ammo > 0)
+            {
+                return _canShoot = true;
+            }
+            else
+            {
+                return _canShoot = false;
+            }
         }
 
         private void Reload()
         {
-            Debug.Log("Reloaded ");
-            
-            if (loadedAmmo < 10)
+            if (Ammo < soWeaponData.AmmoCapacity)
             {
                 reloadCoroutine = true;
-                loadedAmmo += 10 - loadedAmmo;
+                Ammo += soWeaponData.AmmoCapacity - Ammo;
+                StartCoroutine(DelayNextShoot());
                 reloadCoroutine = false;
+                Debug.Log("Reloaded ");
             }
-            
         }
-
-        private void Block()
-        {
-            Debug.Log("Blocking");
-        }
-
         
     }
 }

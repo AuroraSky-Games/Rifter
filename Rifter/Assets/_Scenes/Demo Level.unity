@@ -649,6 +649,14 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 80c3d39c-cbe5-4aef-b651-55bbc164f6f8
     m_ActionName: Player Controls/AIM[/Mouse/position]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0f329658-dbc6-416f-8c7e-0a9f3965293b
+    m_ActionName: Player Controls/Reload[/Keyboard/r]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 65e830d7-c38f-4569-914d-bda52b040df6
+    m_ActionName: Player Controls/Block[/Mouse/rightButton]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player Controls
@@ -18526,11 +18534,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bba063bed5ea44b484d64c267b833036, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soWeaponData: {fileID: 11400000, guid: 70daa2796876e8b43a148d31e8ca5f4a, type: 2}
   bullet: {fileID: 6040140747631448994, guid: 2456a5b8811dc92408b602ee24e3ec1d, type: 3}
   bulletDirection: {fileID: 1907007929}
-  ShotTimeSpace: 0.1
-  moveMentVelocity: 5
-  weaponRenderer: {fileID: 1829961410}
+  shotTimeSpace: 2
+  weaponRenderer: {fileID: 0}
+  loadedAmmo: 10
+  reloadCoroutine: 0
 --- !u!114 &1829961412
 MonoBehaviour:
   m_ObjectHideFlags: 0
