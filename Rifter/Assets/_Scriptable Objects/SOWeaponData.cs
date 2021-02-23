@@ -17,6 +17,9 @@ namespace _Scriptable_Objects
         [field: SerializeField] 
         private bool multiBulletShoot = false;
 
+        [field: SerializeField]
+        private bool isAutomatic = false;
+
         [field: SerializeField] [field: Range(1, 4)]
         private int bulletCount = 1;
 

@@ -13,6 +13,7 @@ namespace _Scripts.Weapons
         private Camera _main;
         private float _weaponDelay;
         private int _ammo;
+        private bool _isShooting;
 
         [SerializeField] protected GameObject muzzle; 
         [SerializeField] private SOWeaponData soWeaponData;
@@ -80,23 +81,28 @@ namespace _Scripts.Weapons
 
         private void PlayerShoot()
         {
-            CanShoot();
-
-            if (_canShoot == true && reloadCoroutine == false)
+            if (CanShoot() == true && ((_isShooting && reloadCoroutine) == false))
             {
-                var mousePosition = _input.PlayerControls.AIM.ReadValue<Vector2>();
-                mousePosition = _main.ScreenToWorldPoint(mousePosition);
 
-                OnShoot?.Invoke();
+                _isShooting = true;
                 
+                OnShoot?.Invoke();
+
                 for (var i = 0; i < soWeaponData.GetBulletCountToSpawn(); i++)
                 {
-                    ShootBullet();
-                    Ammo--;
-                    Debug.Log("Shots lefts " + Ammo);
+                    if (CanShoot() == true)
+                    {
+                        ShootBullet();
+                        Ammo--;
+                        Debug.Log("Shots lefts " + Ammo);
+                    }
+
                 }
 
+                _isShooting = false;
+                
                 StartCoroutine(DelayNextShoot());
+                
             }
             else
             {
@@ -117,7 +123,7 @@ namespace _Scripts.Weapons
 
         private bool CanShoot()
         {
-            if (Ammo > 0)
+            if (Ammo >  0)
             {
                 return _canShoot = true;
             }
@@ -125,6 +131,11 @@ namespace _Scripts.Weapons
             {
                 return _canShoot = false;
             }
+        }
+
+        private void IsAutomatic()
+        {
+            if(soWeaponData){}
         }
 
         private void Reload()
