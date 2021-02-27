@@ -18,22 +18,22 @@ TagManager:
   - UI
   - 
   - 
-  - Obstacles
-  - Ground
+  - 
+  - 
   - Player
   - ObstaclesDoors
-  - NoPathfinding
   - Enemies
-  - NoCollisions
-  - Hole
   - MovingPlatform
   - FallingPlatform
   - Projectile
-  - Camera1
-  - Camera2
-  - Camera3
-  - Camera4
-  - Statues
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
@@ -60,6 +60,9 @@ TagManager:
     locked: 0
   - name: Weapon
     uniqueID: 1989335645
+    locked: 0
+  - name: Projectiles
+    uniqueID: 1930983387
     locked: 0
   - name: Level Objects
     uniqueID: 3879479151

@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace _Scriptable_Objects
 {
-    [CreateAssetMenu(menuName = "Player/WeaponData")]
+    [CreateAssetMenu(menuName = "Weapons/WeaponData")]
     public class SOWeaponData : ScriptableObject
     {
         [field: SerializeField] [field: Range(0, 100)]

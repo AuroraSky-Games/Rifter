@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3514,7 +3514,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -415488145
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -18534,12 +18534,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bba063bed5ea44b484d64c267b833036, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  muzzle: {fileID: 0}
   soWeaponData: {fileID: 11400000, guid: 70daa2796876e8b43a148d31e8ca5f4a, type: 2}
-  bullet: {fileID: 6040140747631448994, guid: 2456a5b8811dc92408b602ee24e3ec1d, type: 3}
+  bullet: {fileID: 7895592695291708507, guid: 25d532404c39b294c885106aff3408eb, type: 3}
   bulletDirection: {fileID: 1907007929}
-  shotTimeSpace: 2
   weaponRenderer: {fileID: 0}
-  loadedAmmo: 10
   reloadCoroutine: 0
 --- !u!114 &1829961412
 MonoBehaviour:
@@ -18625,7 +18624,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 961700441
-  m_SortingLayer: 7
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
