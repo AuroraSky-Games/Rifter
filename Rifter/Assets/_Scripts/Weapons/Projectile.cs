@@ -5,5 +5,5 @@ using UnityEngine;
 public abstract class Projectile : MonoBehaviour
 {
     [field: SerializeField]
-    public SOProjectileData ProjectileData { get; set; }
+    public virtual SOProjectileData ProjectileData { get; set; }
 }

@@ -10,5 +10,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 47f5ad63a5289b74c99438ac93e46fc8, type: 3}
-  m_Name: New SO Projectile Data
+  m_Name: Assault Projectiles
   m_EditorClassIdentifier: 

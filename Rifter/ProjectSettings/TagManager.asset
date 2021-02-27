@@ -16,16 +16,16 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
   - Player
-  - ObstaclesDoors
   - Enemies
-  - MovingPlatform
-  - FallingPlatform
   - Projectile
+  - PlayerMCollider
+  - EnemyMCollider
+  - FX
+  - Obstacle
+  - 
+  - 
+  - 
   - 
   - 
   - 

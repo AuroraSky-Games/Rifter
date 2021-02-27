@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 6596894614719966414}
   - component: {fileID: 4091102559772243333}
   - component: {fileID: 170999981752822602}
-  - component: {fileID: 2132754687528836724}
   - component: {fileID: 8643899020060060552}
   - component: {fileID: 7017691802430982906}
+  - component: {fileID: -4597982901731497573}
   m_Layer: 8
   m_Name: Fire_Bullet
   m_TagString: Untagged
@@ -106,19 +106,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &2132754687528836724
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7895592695291708507}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83356685dad59d446af0c26c1be48d0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
 --- !u!70 &8643899020060060552
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -156,3 +143,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &-4597982901731497573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7895592695291708507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ebff7a06ea50164ca610aa54a3ebc20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <ProjectileData>k__BackingField: {fileID: 0}

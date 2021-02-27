@@ -5,6 +5,10 @@ namespace _Scriptable_Objects
     [CreateAssetMenu(menuName = "Weapons/WeaponData")]
     public class SOWeaponData : ScriptableObject
     {
+        
+        [field: SerializeField]
+        public SOProjectileData ProjectileData { get; set; }
+        
         [field: SerializeField] [field: Range(0, 100)]
         public int AmmoCapacity { get; set; } = 10;
 
