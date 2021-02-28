@@ -43,6 +43,7 @@ public class RegularProjectile : Projectile
         {
             HitObstacle();
         }
+        
         Destroy(gameObject);
     }
 
