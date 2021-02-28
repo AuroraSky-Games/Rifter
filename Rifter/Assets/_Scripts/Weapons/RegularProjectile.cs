@@ -17,7 +17,12 @@ public class RegularProjectile : Projectile
             _rigidbody2D.drag = ProjectileData.Friction; 
         }
     }
-
+    
+    private void OnEnable()
+    {
+        StartCoroutine(DestroyBulletAfterTime());   
+    }
+    
     private void FixedUpdate()
     {
         if (_rigidbody2D != null && ProjectileData != null)
@@ -25,4 +30,25 @@ public class RegularProjectile : Projectile
             _rigidbody2D.MovePosition(transform.position + ProjectileData.Speed * transform.right*Time.fixedDeltaTime);
         }
     }
+    
+    IEnumerator DestroyBulletAfterTime()
+    {
+        yield return new WaitForSeconds(3f);
+        Destroy(gameObject);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if ((collision.gameObject.layer = LayerMask.NameToLayer("Obstacle")) != 0)
+        {
+            HitObstacle();
+        }
+        Destroy(gameObject);
+    }
+
+    private void HitObstacle()
+    {
+        Debug.Log("Hitting obstacle");
+    }
+    
 }

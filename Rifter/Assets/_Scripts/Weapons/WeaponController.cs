@@ -53,7 +53,6 @@ namespace _Scripts.Weapons
         {
             _main = Camera.main;
             Ammo = soWeaponData.AmmoCapacity;
-            //_input.PlayerControls.AttackStart.performed += _ => PlayerShoot();
             _input.PlayerControls.Reload.performed += _ => Reload();
             _input.PlayerControls.AttackStart.performed += _ => AttackPressed();
             _input.PlayerControls.AttackFinnish.performed += _ => AttackReleased();

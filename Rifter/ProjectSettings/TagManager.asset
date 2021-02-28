@@ -61,11 +61,11 @@ TagManager:
   - name: Weapon
     uniqueID: 1989335645
     locked: 0
-  - name: Projectiles
-    uniqueID: 1930983387
-    locked: 0
   - name: Level Objects
     uniqueID: 3879479151
+    locked: 0
+  - name: Projectiles
+    uniqueID: 1930983387
     locked: 0
   - name: Above
     uniqueID: 961700441

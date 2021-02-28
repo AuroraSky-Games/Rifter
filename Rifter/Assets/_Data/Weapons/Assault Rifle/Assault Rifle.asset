@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 48c3209d274ae41498523cdd6229e717, type: 3}
-  m_Name: Player Weapon Data
+  m_Name: Assault Rifle
   m_EditorClassIdentifier: 
   <ProjectileData>k__BackingField: {fileID: 11400000, guid: 28efc33794b017a478dfd3ac6e350b49,
     type: 2}
   <AmmoCapacity>k__BackingField: 100
-  <WeaponDelay>k__BackingField: 10
-  <SpreadAngle>k__BackingField: 5
+  <WeaponDelay>k__BackingField: 0.1
+  <SpreadAngle>k__BackingField: 4
+  <AutomaticFire>k__BackingField: 1
   multiBulletShoot: 0
-  isAutomatic: 0
-  bulletCount: 1
+  bulletCount: 4
