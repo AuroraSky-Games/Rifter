@@ -115,11 +115,11 @@ namespace _Scripts.Weapons
             yield return new WaitForSeconds(WeaponDelay);
         }
 
-        private void ShootBullet()
-        {
-            var shot = Instantiate(bullet, bulletDirection.position, bulletDirection.rotation);
-            shot.SetActive(true);
-        }
+        // private void ShootBullet()
+        // {
+        //     var shot = Instantiate(bullet, bulletDirection.position, bulletDirection.rotation);
+        //     shot.SetActive(true);
+        // }
 
         private bool CanShoot()
         {
@@ -150,5 +150,24 @@ namespace _Scripts.Weapons
             }
         }
         
+        // Example
+
+        private void ShootBullet()
+        {
+            SpawnBullet(muzzle.transform.position, CalculateAngle(muzzle));
+        }
+
+        private void SpawnBullet(Vector3 position, Quaternion rotation)
+        {
+            var projectilePrPrefab = Instantiate(soWeaponData.ProjectileData.ProjectilePrefab, position, rotation);
+            projectilePrPrefab.GetComponent<Projectile>().ProjectileData = soWeaponData.ProjectileData;
+        }
+
+        private Quaternion CalculateAngle(GameObject muzzle)
+        {
+            float spread = Random.Range(-soWeaponData.SpreadAngle, soWeaponData.SpreadAngle);
+            Quaternion bulletSpreadRotation = Quaternion.Euler(new Vector3(0, 0, spread));
+            return muzzle.transform.rotation * bulletSpreadRotation;
+        }
     }
 }

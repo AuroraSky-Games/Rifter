@@ -9,7 +9,7 @@ public class SOProjectileData : ScriptableObject
     public GameObject ProjectilePrefab { get; set; }
 
     [field: SerializeField]
-    [field: Range(1, 10)]
+    [field: Range(1, 100)]
     public float Speed { get; internal set; } = 1;
     
     [field: SerializeField]
