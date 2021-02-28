@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48c3209d274ae41498523cdd6229e717, type: 3}
   m_Name: Player Weapon Data
   m_EditorClassIdentifier: 
-  <AmmoCapacity>k__BackingField: 10
-  <AutomaticFire>k__BackingField: 0
-  <WeaponDelay>k__BackingField: 5
+  <ProjectileData>k__BackingField: {fileID: 11400000, guid: 28efc33794b017a478dfd3ac6e350b49,
+    type: 2}
+  <AmmoCapacity>k__BackingField: 100
+  <WeaponDelay>k__BackingField: 10
   <SpreadAngle>k__BackingField: 5
   multiBulletShoot: 0
+  isAutomatic: 0
   bulletCount: 1

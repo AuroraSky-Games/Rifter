@@ -12,3 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47f5ad63a5289b74c99438ac93e46fc8, type: 3}
   m_Name: Assault Projectiles
   m_EditorClassIdentifier: 
+  <ProjectilePrefab>k__BackingField: {fileID: 7895592695291708507, guid: 25d532404c39b294c885106aff3408eb,
+    type: 3}
+  <Speed>k__BackingField: 10
+  <Damage>k__BackingField: 10
+  <Friction>k__BackingField: 0.1
+  <Bounce>k__BackingField: 0
+  <GoThroughHittable>k__BackingField: 0
+  <IsRaycast>k__BackingField: 0
+  <ImpactObstaclePrefab>k__BackingField: {fileID: 0}
+  <ImpactEnemyPrefab>k__BackingField: {fileID: 0}
+  <KnockBackPower>k__BackingField: 6
+  <KnockBackDelay>k__BackingField: 0.1

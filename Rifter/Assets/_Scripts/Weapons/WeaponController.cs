@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using _Scriptable_Objects;
 using UnityEngine;
 using UnityEngine.Events;
+using Random = UnityEngine.Random;
 
 namespace _Scripts.Weapons
 {
@@ -13,9 +15,9 @@ namespace _Scripts.Weapons
         private Camera _main;
         private float _weaponDelay;
         private int _ammo;
-        private bool _isShooting;
+        private bool _isShooting = false;
 
-        [SerializeField] protected GameObject muzzle; 
+        [SerializeField] protected GameObject projectileDirection; 
         [SerializeField] private SOWeaponData soWeaponData;
         [SerializeField] private GameObject bullet;
         [SerializeField] private Transform bulletDirection;
@@ -31,12 +33,6 @@ namespace _Scripts.Weapons
         {
             get => _ammo;
             set => _ammo = Mathf.Clamp(value, 0, soWeaponData.AmmoCapacity);
-        }
-
-        private float WeaponDelay
-        {
-            get => _weaponDelay;
-            set => _weaponDelay = Mathf.Clamp(value, 0, soWeaponData.WeaponDelay);
         }
 
         private void OnEnable()
@@ -59,8 +55,10 @@ namespace _Scripts.Weapons
         {
             _main = Camera.main;
             Ammo = soWeaponData.AmmoCapacity;
-            WeaponDelay = soWeaponData.WeaponDelay;
-            _input.PlayerControls.Attack.performed += _ => PlayerShoot();
+            _input.PlayerControls.AttackStart.performed += _ => PlayerShoot();
+            
+            // _input.PlayerControls.AttackStart.performed += _ => AttackPressed();
+            // _input.PlayerControls.AttackFinnish.performed += _ => AttackReleased();
             _input.PlayerControls.Reload.performed += _ => Reload();
         }
         
@@ -81,56 +79,47 @@ namespace _Scripts.Weapons
 
         private void PlayerShoot()
         {
-            if (CanShoot() == true && ((_isShooting && reloadCoroutine) == false))
+            
+            if (reloadCoroutine == false)
             {
-
-                _isShooting = true;
-                
-                OnShoot?.Invoke();
-
-                for (var i = 0; i < soWeaponData.GetBulletCountToSpawn(); i++)
+                if (Ammo > 0)
                 {
-                    if (CanShoot() == true)
+                    
+                    OnShoot?.Invoke();
+                    
+                    for (var i = 0; i < soWeaponData.GetBulletCountToSpawn(); i++)
                     {
-                        ShootBullet();
-                        Ammo--;
-                        Debug.Log("Shots lefts " + Ammo);
+                        if (Ammo > 0)
+                        {
+                            ShootBullet();
+                            Ammo--; 
+                            Debug.Log("Shots lefts " + Ammo);
+                        }
                     }
-
                 }
-
-                _isShooting = false;
+                else
+                {
+                    OnShootNoAmmo?.Invoke();
+                }
                 
                 StartCoroutine(DelayNextShoot());
                 
             }
-            else
-            {
-                OnShootNoAmmo?.Invoke();
-            }
+        }
+
+        private void AttackPressed()
+        {
+            _isShooting = true;
+        }
+
+        private void AttackReleased()
+        {
+            _isShooting = false; 
         }
 
         private IEnumerator DelayNextShoot()
         {
-            yield return new WaitForSeconds(WeaponDelay);
-        }
-
-        // private void ShootBullet()
-        // {
-        //     var shot = Instantiate(bullet, bulletDirection.position, bulletDirection.rotation);
-        //     shot.SetActive(true);
-        // }
-
-        private bool CanShoot()
-        {
-            if (Ammo >  0)
-            {
-                return _canShoot = true;
-            }
-            else
-            {
-                return _canShoot = false;
-            }
+            yield return new WaitForSeconds(soWeaponData.WeaponDelay);
         }
 
         private void IsAutomatic()
@@ -150,11 +139,9 @@ namespace _Scripts.Weapons
             }
         }
         
-        // Example
-
         private void ShootBullet()
         {
-            SpawnBullet(muzzle.transform.position, CalculateAngle(muzzle));
+            SpawnBullet(projectileDirection.transform.position, CalculateAngle(projectileDirection));
         }
 
         private void SpawnBullet(Vector3 position, Quaternion rotation)
@@ -163,11 +150,11 @@ namespace _Scripts.Weapons
             projectilePrPrefab.GetComponent<Projectile>().ProjectileData = soWeaponData.ProjectileData;
         }
 
-        private Quaternion CalculateAngle(GameObject muzzle)
+        private Quaternion CalculateAngle(GameObject direction)
         {
             float spread = Random.Range(-soWeaponData.SpreadAngle, soWeaponData.SpreadAngle);
             Quaternion bulletSpreadRotation = Quaternion.Euler(new Vector3(0, 0, spread));
-            return muzzle.transform.rotation * bulletSpreadRotation;
+            return direction.transform.rotation * bulletSpreadRotation;
         }
     }
 }

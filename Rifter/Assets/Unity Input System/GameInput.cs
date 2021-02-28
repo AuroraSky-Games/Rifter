@@ -27,9 +27,17 @@ public class @GameInput : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Attack"",
+                    ""name"": ""AttackStart"",
                     ""type"": ""Button"",
                     ""id"": ""8906ad63-0904-4675-b4fc-ff2cff441b4f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""AttackFinnish"",
+                    ""type"": ""Button"",
+                    ""id"": ""f7904573-0bb2-4f51-8bd8-c1cf6e452632"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -64,21 +72,10 @@ public class @GameInput : IInputActionCollection, IDisposable
                     ""name"": """",
                     ""id"": ""2057fb70-f50c-4e5d-92d2-aef142bd6ef2"",
                     ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": """",
+                    ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Attack"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""d7a21775-cf3c-4ea9-8182-96d1986f780d"",
-                    ""path"": ""<Gamepad>/rightTrigger"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Attack"",
+                    ""action"": ""AttackStart"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -189,6 +186,17 @@ public class @GameInput : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Block"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""30678610-e164-472d-8d91-02f6cd3fe329"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": ""Press(behavior=1)"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AttackFinnish"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -304,7 +312,8 @@ public class @GameInput : IInputActionCollection, IDisposable
         // Player Controls
         m_PlayerControls = asset.FindActionMap("Player Controls", throwIfNotFound: true);
         m_PlayerControls_Movement = m_PlayerControls.FindAction("Movement", throwIfNotFound: true);
-        m_PlayerControls_Attack = m_PlayerControls.FindAction("Attack", throwIfNotFound: true);
+        m_PlayerControls_AttackStart = m_PlayerControls.FindAction("AttackStart", throwIfNotFound: true);
+        m_PlayerControls_AttackFinnish = m_PlayerControls.FindAction("AttackFinnish", throwIfNotFound: true);
         m_PlayerControls_AIM = m_PlayerControls.FindAction("AIM", throwIfNotFound: true);
         m_PlayerControls_Reload = m_PlayerControls.FindAction("Reload", throwIfNotFound: true);
         m_PlayerControls_Block = m_PlayerControls.FindAction("Block", throwIfNotFound: true);
@@ -367,7 +376,8 @@ public class @GameInput : IInputActionCollection, IDisposable
     private readonly InputActionMap m_PlayerControls;
     private IPlayerControlsActions m_PlayerControlsActionsCallbackInterface;
     private readonly InputAction m_PlayerControls_Movement;
-    private readonly InputAction m_PlayerControls_Attack;
+    private readonly InputAction m_PlayerControls_AttackStart;
+    private readonly InputAction m_PlayerControls_AttackFinnish;
     private readonly InputAction m_PlayerControls_AIM;
     private readonly InputAction m_PlayerControls_Reload;
     private readonly InputAction m_PlayerControls_Block;
@@ -376,7 +386,8 @@ public class @GameInput : IInputActionCollection, IDisposable
         private @GameInput m_Wrapper;
         public PlayerControlsActions(@GameInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_PlayerControls_Movement;
-        public InputAction @Attack => m_Wrapper.m_PlayerControls_Attack;
+        public InputAction @AttackStart => m_Wrapper.m_PlayerControls_AttackStart;
+        public InputAction @AttackFinnish => m_Wrapper.m_PlayerControls_AttackFinnish;
         public InputAction @AIM => m_Wrapper.m_PlayerControls_AIM;
         public InputAction @Reload => m_Wrapper.m_PlayerControls_Reload;
         public InputAction @Block => m_Wrapper.m_PlayerControls_Block;
@@ -392,9 +403,12 @@ public class @GameInput : IInputActionCollection, IDisposable
                 @Movement.started -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnMovement;
                 @Movement.performed -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnMovement;
                 @Movement.canceled -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnMovement;
-                @Attack.started -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnAttack;
-                @Attack.performed -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnAttack;
-                @Attack.canceled -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnAttack;
+                @AttackStart.started -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnAttackStart;
+                @AttackStart.performed -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnAttackStart;
+                @AttackStart.canceled -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnAttackStart;
+                @AttackFinnish.started -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnAttackFinnish;
+                @AttackFinnish.performed -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnAttackFinnish;
+                @AttackFinnish.canceled -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnAttackFinnish;
                 @AIM.started -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnAIM;
                 @AIM.performed -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnAIM;
                 @AIM.canceled -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnAIM;
@@ -411,9 +425,12 @@ public class @GameInput : IInputActionCollection, IDisposable
                 @Movement.started += instance.OnMovement;
                 @Movement.performed += instance.OnMovement;
                 @Movement.canceled += instance.OnMovement;
-                @Attack.started += instance.OnAttack;
-                @Attack.performed += instance.OnAttack;
-                @Attack.canceled += instance.OnAttack;
+                @AttackStart.started += instance.OnAttackStart;
+                @AttackStart.performed += instance.OnAttackStart;
+                @AttackStart.canceled += instance.OnAttackStart;
+                @AttackFinnish.started += instance.OnAttackFinnish;
+                @AttackFinnish.performed += instance.OnAttackFinnish;
+                @AttackFinnish.canceled += instance.OnAttackFinnish;
                 @AIM.started += instance.OnAIM;
                 @AIM.performed += instance.OnAIM;
                 @AIM.canceled += instance.OnAIM;
@@ -547,7 +564,8 @@ public class @GameInput : IInputActionCollection, IDisposable
     public interface IPlayerControlsActions
     {
         void OnMovement(InputAction.CallbackContext context);
-        void OnAttack(InputAction.CallbackContext context);
+        void OnAttackStart(InputAction.CallbackContext context);
+        void OnAttackFinnish(InputAction.CallbackContext context);
         void OnAIM(InputAction.CallbackContext context);
         void OnReload(InputAction.CallbackContext context);
         void OnBlock(InputAction.CallbackContext context);

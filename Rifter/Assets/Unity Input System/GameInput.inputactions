@@ -14,9 +14,17 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Attack",
+                    "name": "AttackStart",
                     "type": "Button",
                     "id": "8906ad63-0904-4675-b4fc-ff2cff441b4f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "AttackFinnish",
+                    "type": "Button",
+                    "id": "f7904573-0bb2-4f51-8bd8-c1cf6e452632",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -51,21 +59,10 @@
                     "name": "",
                     "id": "2057fb70-f50c-4e5d-92d2-aef142bd6ef2",
                     "path": "<Mouse>/leftButton",
-                    "interactions": "",
+                    "interactions": "Press",
                     "processors": "",
                     "groups": "",
-                    "action": "Attack",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "d7a21775-cf3c-4ea9-8182-96d1986f780d",
-                    "path": "<Gamepad>/rightTrigger",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Attack",
+                    "action": "AttackStart",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -176,6 +173,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Block",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "30678610-e164-472d-8d91-02f6cd3fe329",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "Press(behavior=1)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AttackFinnish",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

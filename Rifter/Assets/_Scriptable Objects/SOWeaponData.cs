@@ -12,7 +12,7 @@ namespace _Scriptable_Objects
         [field: SerializeField] [field: Range(0, 100)]
         public int AmmoCapacity { get; set; } = 10;
 
-        [field: SerializeField] [field: Range(0.1f, 5f)]
+        [field: SerializeField] [field: Range(0.1f, 100)]
         public float WeaponDelay { get; set; } = 5f;
 
         [field: SerializeField] [field: Range(0, 10)]
