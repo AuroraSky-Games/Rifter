@@ -11,9 +11,7 @@ namespace _Scripts.Weapons
     public class WeaponController : MonoBehaviour
     {
         private GameInput _input;
-        private bool _canShoot = false;
         private Camera _main;
-        private float _weaponDelay;
         private int _ammo;
         private bool _isShooting = false;
 
@@ -55,16 +53,16 @@ namespace _Scripts.Weapons
         {
             _main = Camera.main;
             Ammo = soWeaponData.AmmoCapacity;
-            _input.PlayerControls.AttackStart.performed += _ => PlayerShoot();
-            
-            // _input.PlayerControls.AttackStart.performed += _ => AttackPressed();
-            // _input.PlayerControls.AttackFinnish.performed += _ => AttackReleased();
+            //_input.PlayerControls.AttackStart.performed += _ => PlayerShoot();
             _input.PlayerControls.Reload.performed += _ => Reload();
+            _input.PlayerControls.AttackStart.performed += _ => AttackPressed();
+            _input.PlayerControls.AttackFinnish.performed += _ => AttackReleased();
         }
         
         private void Update()
         {
             PlayerAim();
+            PlayerShoot();
         }
 
         private void PlayerAim()
@@ -80,30 +78,31 @@ namespace _Scripts.Weapons
         private void PlayerShoot()
         {
             
-            if (reloadCoroutine == false)
+            if (_isShooting && reloadCoroutine == false)
             {
                 if (Ammo > 0)
                 {
                     
                     OnShoot?.Invoke();
+                    Ammo--;
+                    Debug.Log("Shots lefts " + Ammo);
                     
                     for (var i = 0; i < soWeaponData.GetBulletCountToSpawn(); i++)
                     {
-                        if (Ammo > 0)
-                        {
-                            ShootBullet();
-                            Ammo--; 
-                            Debug.Log("Shots lefts " + Ammo);
-                        }
+                        ShootBullet();
                     }
                 }
                 else
                 {
+                    _isShooting = false;
                     OnShootNoAmmo?.Invoke();
                 }
                 
                 StartCoroutine(DelayNextShoot());
-                
+                if (soWeaponData.AutomaticFire == false)
+                {
+                    _isShooting = false;
+                }
             }
         }
 
@@ -119,22 +118,17 @@ namespace _Scripts.Weapons
 
         private IEnumerator DelayNextShoot()
         {
+            reloadCoroutine = true;
             yield return new WaitForSeconds(soWeaponData.WeaponDelay);
-        }
-
-        private void IsAutomatic()
-        {
-            if(soWeaponData){}
+            reloadCoroutine = false;
         }
 
         private void Reload()
         {
             if (Ammo < soWeaponData.AmmoCapacity)
             {
-                reloadCoroutine = true;
                 Ammo += soWeaponData.AmmoCapacity - Ammo;
                 StartCoroutine(DelayNextShoot());
-                reloadCoroutine = false;
                 Debug.Log("Reloaded ");
             }
         }

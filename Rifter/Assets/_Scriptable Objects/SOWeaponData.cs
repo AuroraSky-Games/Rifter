@@ -18,11 +18,12 @@ namespace _Scriptable_Objects
         [field: SerializeField] [field: Range(0, 10)]
         public float SpreadAngle { get; set; } = 5;
 
+        [field: SerializeField]
+        public bool AutomaticFire { get; set; }
+
         [field: SerializeField] 
         private bool multiBulletShoot = false;
-
-        [field: SerializeField]
-        private bool isAutomatic = false;
+        
 
         [field: SerializeField] [field: Range(1, 4)]
         private int bulletCount = 1;
@@ -33,8 +34,10 @@ namespace _Scriptable_Objects
             {
                 return bulletCount;
             }
-
-            return 1;
+            else
+            {
+                return 1;
+            }
         }
     
     }
