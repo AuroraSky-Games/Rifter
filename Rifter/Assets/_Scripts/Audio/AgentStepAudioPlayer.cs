@@ -15,13 +15,20 @@ public class AgentStepAudioPlayer : MonoBehaviour
     [field: SerializeField]
     protected AudioClip stepClip;
 
-    private void LateUpdate()
+    private void Awake()
     {
         _audioSource = GetComponent<AudioSource>();
     }
 
+    private void Start()
+    {
+        basePitch = _audioSource.pitch;
+    }
+
     protected void ClipVariablePitch(AudioClip clip)
     {
+        var randomPitch = UnityEngine.Random.Range(-pitchRandomness, pitchRandomness);
+        _audioSource.pitch = basePitch + randomPitch;
         PlayClip(clip);
     }
 
