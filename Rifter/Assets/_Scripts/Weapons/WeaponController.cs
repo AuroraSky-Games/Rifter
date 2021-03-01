@@ -24,8 +24,9 @@ namespace _Scripts.Weapons
 
         //Unity Events
         
-        [SerializeField] public UnityEvent OnShoot { get; set; }
-        [SerializeField] public UnityEvent OnShootNoAmmo { get; set; }
+        [field: SerializeField] public UnityEvent OnShoot { get; set; }
+        [field: SerializeField] public UnityEvent OnShootNoAmmo { get; set; }
+        [field: SerializeField] public UnityEvent OnReload { get; set; }
 
         private int Ammo
         {
@@ -126,6 +127,7 @@ namespace _Scripts.Weapons
         {
             if (Ammo < soWeaponData.AmmoCapacity)
             {
+                OnReload?.Invoke();
                 Ammo += soWeaponData.AmmoCapacity - Ammo;
                 StartCoroutine(DelayNextShoot());
                 Debug.Log("Reloaded ");
