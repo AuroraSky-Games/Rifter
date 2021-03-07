@@ -14,16 +14,13 @@ public class PlayerController : MonoBehaviour
     [field: SerializeField]
     private float currentVelocity = 5;
 
-    protected Vector2 movementDirection; 
-    
-    [field: SerializeField]
-    public UnityEvent<float> OnVelocityChange { get; set; }
-    
-    [field: SerializeField]
-    public UnityEvent<Vector2> OnPointerChange { get; set; }
+    protected Vector2 movementDirection;
 
-    [field: SerializeField]
-    public SOMovementData MovementData { get; set; }
+    [field: SerializeField] public UnityEvent<float> OnVelocityChange { get; set; }
+
+    [field: SerializeField] public UnityEvent<Vector2> OnPointerChange { get; set; }
+    
+    [field: SerializeField] public SOMovementData MovementData { get; set; }
     
     protected Rigidbody2D _rigidbody2D;
     private Vector2 movementInput = Vector2.zero;

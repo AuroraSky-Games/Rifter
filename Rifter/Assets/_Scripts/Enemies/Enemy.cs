@@ -12,6 +12,8 @@ public class Enemy : MonoBehaviour, IHittable
     [field: SerializeField] public int Health { get; private set; } = 2;
     
     [field: SerializeField] public UnityEvent OnGetHit { get; set; }
+    
+    [field: SerializeField] public UnityEvent OnDie { get; set; }
 
     private void Start()
     {
@@ -23,10 +25,20 @@ public class Enemy : MonoBehaviour, IHittable
 
         Health--;
         OnGetHit?.Invoke();
+
         if (Health <= 0)
         {
-            Destroy(gameObject);
+            OnDie?.Invoke();
+            StartCoroutine(WaitToDie());
+
         }
 
     }
+
+    IEnumerator WaitToDie()
+    {
+        yield return new WaitForSeconds(.53f);
+        Destroy(gameObject);
+    }
+    
 }
