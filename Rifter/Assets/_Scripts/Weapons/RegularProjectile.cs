@@ -41,7 +41,14 @@ public class RegularProjectile : Projectile
     {
         if ((collision.gameObject.layer = LayerMask.NameToLayer("Obstacle")) != 0)
         {
+            
+            HitEnemy();
+            
+        } else if ((collision.gameObject.layer = LayerMask.NameToLayer("EnemyMCollider")) != 0)
+        {
+            
             HitObstacle();
+            
         }
         
         Destroy(gameObject);
@@ -50,6 +57,11 @@ public class RegularProjectile : Projectile
     private void HitObstacle()
     {
         Debug.Log("Hitting obstacle");
+    }
+
+    private void HitEnemy()
+    {
+        Debug.Log("Hitting Enemy");
     }
     
 }
