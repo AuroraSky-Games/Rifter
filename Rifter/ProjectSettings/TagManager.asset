@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - World
   - NoMask
+  - Obstacle
   layers:
   - Default
   - TransparentFX
@@ -17,12 +18,12 @@ TagManager:
   - Water
   - UI
   - Player
-  - Enemies
+  - Enemy
   - Projectile
-  - PlayerMCollider
-  - EnemyMCollider
   - FX
   - Obstacle
+  - 
+  - 
   - 
   - 
   - 

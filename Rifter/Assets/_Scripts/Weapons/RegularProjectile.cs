@@ -39,12 +39,13 @@ public class RegularProjectile : Projectile
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if ((collision.gameObject.layer = LayerMask.NameToLayer("Obstacle")) != 0)
+
+        if (collision.tag.Equals("Enemy"))
         {
             
             HitEnemy();
             
-        } else if ((collision.gameObject.layer = LayerMask.NameToLayer("EnemyMCollider")) != 0)
+        } else if (collision.tag.Equals("Obstacle"))
         {
             
             HitObstacle();
