@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <ProjectileData>k__BackingField: {fileID: 11400000, guid: 28efc33794b017a478dfd3ac6e350b49,
     type: 2}
-  <AmmoCapacity>k__BackingField: 10
+  <AmmoCapacity>k__BackingField: 100
   <WeaponDelay>k__BackingField: 0.1
   <SpreadAngle>k__BackingField: 10
   <AutomaticFire>k__BackingField: 1

@@ -15,7 +15,7 @@ MonoBehaviour:
   <ProjectilePrefab>k__BackingField: {fileID: 7895592695291708507, guid: 25d532404c39b294c885106aff3408eb,
     type: 3}
   <Speed>k__BackingField: 15
-  <Damage>k__BackingField: 10
+  <Damage>k__BackingField: 1
   <Friction>k__BackingField: 0.1
   <Bounce>k__BackingField: 0
   <GoThroughHittable>k__BackingField: 0

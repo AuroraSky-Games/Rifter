@@ -40,6 +40,9 @@ public class RegularProjectile : Projectile
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
+        var hittable = collision.GetComponent<IHittable>();
+        hittable?.GetHit(ProjectileData.Damage, gameObject);
+        
         if (collision.tag.Equals("Enemy"))
         {
             
