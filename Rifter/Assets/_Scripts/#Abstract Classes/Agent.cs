@@ -6,8 +6,8 @@ namespace _Scripts
 {
     public abstract class Agent : MonoBehaviour, IHittable, IAgent
     {
-        [field: SerializeField] public SOAgentStats AgentStats { get; set; }
-        public int Health { get; set; }
+        public int Health { get; private set; }
+        [field: SerializeField] private SOAgentStats AgentStats { get; set; }
         [field: SerializeField] public UnityEvent OnGetHit { get; set; }
         [field: SerializeField] public UnityEvent OnDie { get; set; }
         
@@ -26,6 +26,5 @@ namespace _Scripts
         }
 
         protected abstract IEnumerator WaitToDie();
-
     }
 }
