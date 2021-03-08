@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using _Scripts.Interfaces;
+using _Scripts;
 using UnityEngine;
 
 public class RegularProjectile : Projectile

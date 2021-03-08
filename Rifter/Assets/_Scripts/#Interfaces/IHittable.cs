@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace _Scripts.Interfaces
+namespace _Scripts
 {
     public interface IHittable
     {

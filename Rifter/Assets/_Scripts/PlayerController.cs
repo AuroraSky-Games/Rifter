@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
 
     [field: SerializeField] public UnityEvent<Vector2> OnPointerChange { get; set; }
     
-    [field: SerializeField] public SOMovementData MovementData { get; set; }
+    [field: SerializeField] public SOAgentStats AgentStats { get; set; }
     
     protected Rigidbody2D _rigidbody2D;
     private Vector2 movementInput = Vector2.zero;
@@ -67,14 +67,14 @@ public class PlayerController : MonoBehaviour
     {
         if (movementInput.magnitude > 0)
         {
-            currentVelocity += MovementData.acceleration * Time.deltaTime;
+            currentVelocity += AgentStats.acceleration * Time.deltaTime;
         }
         else
         {
-            currentVelocity -= MovementData.deAcceleration * Time.deltaTime;
+            currentVelocity -= AgentStats.deAcceleration * Time.deltaTime;
         }
 
-        return Mathf.Clamp(currentVelocity, 0, MovementData.maxSpeed);
+        return Mathf.Clamp(currentVelocity, 0, AgentStats.maxSpeed);
     }
 
     private void FixedUpdate()
