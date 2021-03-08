@@ -1,11 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public interface IHittable
+namespace _Scripts.Interfaces
 {
-    UnityEvent OnGetHit { get; set; }
+    public interface IHittable
+    {
+        UnityEvent OnGetHit { get; set; }
     
-    void GetHit(int damage, GameObject damageDealer);
+        void GetHit(int damage, GameObject damageDealer);
+    }
 }
