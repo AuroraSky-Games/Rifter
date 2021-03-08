@@ -679,7 +679,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0f2491fcc98dfb4f9dc2c7053c423eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentVelocity: 5
+  <AgentStats>k__BackingField: {fileID: 11400000, guid: 285e7f9230a3f5a4da308f291a93ea18,
+    type: 2}
   <OnVelocityChange>k__BackingField:
     m_PersistentCalls:
       m_Calls:
@@ -722,8 +723,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  <MovementData>k__BackingField: {fileID: 11400000, guid: ac287252bc027d745a357933d9cdd99a,
-    type: 2}
 --- !u!4 &702205985
 Transform:
   m_ObjectHideFlags: 0
@@ -18879,9 +18878,9 @@ MonoBehaviour:
   <OnReload>k__BackingField:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 196498138}
+      - m_Target: {fileID: 1829961408}
         m_TargetAssemblyTypeName: WeaponAudioPlayer, Assembly-CSharp
-        m_MethodName: PlayReloadSound
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -21350,5 +21349,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3641012494596942234, guid: e13dfb2eec2b1854cabc971d9d0d679e,
+        type: 3}
+      propertyPath: <AgentStats>k__BackingField
+      value: 
+      objectReference: {fileID: 11400000, guid: 29f147cfefde6be41ad3dac9aef4bac8,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e13dfb2eec2b1854cabc971d9d0d679e, type: 3}

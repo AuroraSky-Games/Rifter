@@ -11,6 +11,9 @@ public class SOAgentStats : ScriptableObject
     [field: SerializeField] public int Damage { get; set; } = 1;
     
     [Range(1,10)]
+    public float startVelocity  = 5;
+    
+    [Range(1,10)]
     public float maxSpeed = 5;
 
     [Range(0.1f, 100)]

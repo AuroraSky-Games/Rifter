@@ -1,23 +1,15 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using _Scripts;
 using UnityEngine;
-using UnityEngine.Events;
 
-public class Enemy : Agent
+namespace _Scripts.Enemies
 {
-    [field: SerializeField] private SOAgentStats EnemyStats { get; set; }
-    
-    private void Start()
+    public class Enemy : Agent
     {
-        Health = EnemyStats.MaxHealth;
-    }
-
-    protected override IEnumerator WaitToDie()
-    {
-        yield return new WaitForSeconds(.53f);
-        Destroy(gameObject);
+        protected override IEnumerator WaitToDie()
+        {
+            yield return new WaitForSeconds(.53f);
+            Destroy(gameObject);
+        }
     }
 }
 

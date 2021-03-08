@@ -1,85 +1,88 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(Rigidbody2D))]
-public class PlayerController : MonoBehaviour
+namespace _Scripts
 {
-
-    private Camera mainCamera;
-
-    [field: SerializeField]
-    private float currentVelocity = 5;
-
-    protected Vector2 movementDirection;
-
-    [field: SerializeField] public UnityEvent<float> OnVelocityChange { get; set; }
-
-    [field: SerializeField] public UnityEvent<Vector2> OnPointerChange { get; set; }
+    [RequireComponent(typeof(Rigidbody2D))]
+    public class PlayerController : MonoBehaviour
+    {
     
-    [field: SerializeField] public SOAgentStats AgentStats { get; set; }
+        //Variables
     
-    protected Rigidbody2D _rigidbody2D;
-    private Vector2 movementInput = Vector2.zero;
-    private Vector2 pointerInput = Vector2.zero;
+        private Camera _mainCamera;
+        private float _currentVelocity;
+        private Vector2 _movementDirection;
+        private Rigidbody2D _rigidbody2D;
+        private Vector2 _movementInput = Vector2.zero;
+        private Vector2 _pointerInput = Vector2.zero;
 
-    //Used in editor to read input from new input system. 
-    public void OnMove(InputAction.CallbackContext context)
-    {
-        movementInput = context.ReadValue<Vector2>();
-    }
-
-    public void OnPointerMovement(InputAction.CallbackContext context)
-    {
-        pointerInput = context.ReadValue<Vector2>();
-    }
-
-    private void Start()
-    {
-        mainCamera = Camera.main;
-        _rigidbody2D = GetComponent<Rigidbody2D>();
-    }
-
-    void Update()
-    {
-        Vector2 move = new Vector2(movementInput.x, movementInput.y);
-        var pointer = new Vector3(pointerInput.x, pointerInput.y);
-        GetPointerInput();
-        moveAgent(move);
-    }
-
-    public void GetPointerInput()
-    {
-        var mouseInWorldSpace = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-        OnPointerChange?.Invoke(mouseInWorldSpace);
-    }
-
-    public void moveAgent(Vector2 momentInput)
-    {
-        movementDirection = momentInput;
-        currentVelocity = CalculateSpeed(movementInput);
-    }
-
-    private float CalculateSpeed(Vector2 movementInput)
-    {
-        if (movementInput.magnitude > 0)
+        //Events
+    
+        [field: SerializeField] private SOAgentStats AgentStats { get; set; }
+        [field: SerializeField] private UnityEvent<float> OnVelocityChange { get; set; }
+        [field: SerializeField] private UnityEvent<Vector2> OnPointerChange { get; set; }
+    
+        //Used in editor to read input from new input system. 
+        public void OnMove(InputAction.CallbackContext context)
         {
-            currentVelocity += AgentStats.acceleration * Time.deltaTime;
-        }
-        else
-        {
-            currentVelocity -= AgentStats.deAcceleration * Time.deltaTime;
+            _movementInput = context.ReadValue<Vector2>();
         }
 
-        return Mathf.Clamp(currentVelocity, 0, AgentStats.maxSpeed);
-    }
+        public void OnPointerMovement(InputAction.CallbackContext context)
+        {
+            _pointerInput = context.ReadValue<Vector2>();
+        }
 
-    private void FixedUpdate()
-    {
-        OnVelocityChange?.Invoke(currentVelocity);
-        _rigidbody2D.velocity = currentVelocity * movementDirection.normalized;
+        private void Start()
+        {
+            _mainCamera = Camera.main;
+            _rigidbody2D = GetComponent<Rigidbody2D>();
+            _currentVelocity = AgentStats.startVelocity;
+        }
+
+        private void Update()
+        {
+            var move = new Vector2(_movementInput.x, _movementInput.y);
+            var pointer = new Vector3(_pointerInput.x, _pointerInput.y);
+            GetPointerInput();
+            MoveAgent(move);
+        }
+    
+        private void FixedUpdate()
+        {
+            OnVelocityChange?.Invoke(_currentVelocity);
+            _rigidbody2D.velocity = _currentVelocity * _movementDirection.normalized;
+        }
+
+        //Methods
+
+        private void GetPointerInput()
+        {
+            var mouseInWorldSpace = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
+            OnPointerChange?.Invoke(mouseInWorldSpace);
+        }
+
+        private void MoveAgent(Vector2 momentInput)
+        {
+            _movementDirection = momentInput;
+            _currentVelocity = CalculateSpeed(_movementInput);
+        }
+
+        private float CalculateSpeed(Vector2 movementInput)
+        {
+            if (movementInput.magnitude > 0)
+            {
+                _currentVelocity += AgentStats.acceleration * Time.deltaTime;
+            }
+            else
+            {
+                _currentVelocity -= AgentStats.deAcceleration * Time.deltaTime;
+            }
+
+            return Mathf.Clamp(_currentVelocity, 0, AgentStats.maxSpeed);
+        }
+
+    
     }
 }
