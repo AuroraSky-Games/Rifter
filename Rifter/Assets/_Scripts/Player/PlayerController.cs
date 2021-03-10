@@ -5,12 +5,11 @@ using UnityEngine.InputSystem;
 namespace _Scripts
 {
     [RequireComponent(typeof(Rigidbody2D))]
-    public class PlayerController : MonoBehaviour
+    public class PlayerController : SystemManager
     {
     
         //Variables
-    
-        private Camera _mainCamera;
+        
         private float _currentVelocity;
         private Vector2 _movementDirection;
         private Rigidbody2D _rigidbody2D;
@@ -36,7 +35,6 @@ namespace _Scripts
 
         private void Start()
         {
-            _mainCamera = Camera.main;
             _rigidbody2D = GetComponent<Rigidbody2D>();
             _currentVelocity = AgentStats.startVelocity;
         }
@@ -44,7 +42,6 @@ namespace _Scripts
         private void Update()
         {
             var move = new Vector2(_movementInput.x, _movementInput.y);
-            var pointer = new Vector3(_pointerInput.x, _pointerInput.y);
             GetPointerInput();
             MoveAgent(move);
         }
@@ -57,10 +54,10 @@ namespace _Scripts
 
         //Methods
 
-        private void GetPointerInput()
+        private void GetPointerInput()  
         {
-            var mouseInWorldSpace = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
-            OnPointerChange?.Invoke(mouseInWorldSpace);
+            var mousePosition = GetMousePosition;
+            OnPointerChange?.Invoke(mousePosition);
         }
 
         private void MoveAgent(Vector2 momentInput)

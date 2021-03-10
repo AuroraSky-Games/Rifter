@@ -30,7 +30,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "AIM",
+                    "name": "TargetPosition ",
                     "type": "Value",
                     "id": "80c3d39c-cbe5-4aef-b651-55bbc164f6f8",
                     "expectedControlType": "Vector2",
@@ -139,7 +139,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "AIM",
+                    "action": "TargetPosition ",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -150,7 +150,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "AIM",
+                    "action": "TargetPosition ",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

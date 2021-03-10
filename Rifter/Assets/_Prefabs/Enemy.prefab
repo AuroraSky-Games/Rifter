@@ -406,7 +406,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e736057575a8e0c4783f433268645959, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Health>k__BackingField: 2
+  <AgentStats>k__BackingField: {fileID: 0}
   <OnGetHit>k__BackingField:
     m_PersistentCalls:
       m_Calls:
@@ -437,8 +437,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  <EnemyStats>k__BackingField: {fileID: 11400000, guid: 29f147cfefde6be41ad3dac9aef4bac8,
-    type: 2}
 --- !u!70 &3641012494596942235
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -467,16 +465,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b369fe242801be64eac116fcfbb0d3ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <FirePressed>k__BackingField:
-    m_PersistentCalls:
-      m_Calls: []
-  <FireReleased>k__BackingField:
-    m_PersistentCalls:
-      m_Calls: []
   <MovementPressed>k__BackingField:
     m_PersistentCalls:
       m_Calls: []
   <MovementReleased>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
+  <OnTargetChange>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
+  <OnVelocityChange>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
+  <FirePressed>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
+  <FireReleased>k__BackingField:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &3641012494696325725

@@ -7,13 +7,13 @@ using Random = UnityEngine.Random;
 
 namespace _Scripts.Weapons
 {
+
     [RequireComponent(typeof(SpriteRenderer))]
-    public class WeaponController : MonoBehaviour
+    public class WeaponController : SystemManager
     {
-        private GameInput _input;
-        private Camera _main;
         private int _ammo;
         private bool _isShooting = false;
+        private Vector3 _aimScreenWorldPosition;
 
         [SerializeField] protected GameObject projectileDirection; 
         [SerializeField] private SOWeaponData soWeaponData;
@@ -24,9 +24,9 @@ namespace _Scripts.Weapons
 
         //Unity Events
         
-        [field: SerializeField] public UnityEvent OnShoot { get; set; }
-        [field: SerializeField] public UnityEvent OnShootNoAmmo { get; set; }
-        [field: SerializeField] public UnityEvent OnReload { get; set; }
+        [field: SerializeField] private UnityEvent OnShoot { get; set; }
+        [field: SerializeField] private UnityEvent OnShootNoAmmo { get; set; }
+        [field: SerializeField] private UnityEvent OnReload { get; set; }
 
         private int Ammo
         {
@@ -34,43 +34,31 @@ namespace _Scripts.Weapons
             set => _ammo = Mathf.Clamp(value, 0, soWeaponData.AmmoCapacity);
         }
 
-        private void OnEnable()
-        {
-            _input.Enable();
-        }
-
-        private void OnDisable()
-        {
-            _input.Disable();
-        }
-
         private void Awake()
         {
-            _input = new GameInput();
             weaponRenderer = GetComponent<SpriteRenderer>();
         }
-    
+
         private void Start()
         {
-            _main = Camera.main;
             Ammo = soWeaponData.AmmoCapacity;
-            _input.PlayerControls.Reload.performed += _ => Reload();
-            _input.PlayerControls.AttackStart.performed += _ => AttackPressed();
-            _input.PlayerControls.AttackFinnish.performed += _ => AttackReleased();
+            var input = GetInput;
+            input.PlayerControls.Reload.performed += _ => Reload();
+            input.PlayerControls.AttackStart.performed += _ => AttackPressed();
+            input.PlayerControls.AttackFinnish.performed += _ => AttackReleased();
         }
         
         private void Update()
         {
-            PlayerAim();
+            _aimScreenWorldPosition = SystemManager.GetMousePosition;
+            PlayerAim(_aimScreenWorldPosition);
             PlayerShoot();
         }
 
-        private void PlayerAim()
+        private void PlayerAim(Vector3 aimWorldPosition)
         {
             //Rotation
-            var aimScreenPosition = _input.PlayerControls.AIM.ReadValue<Vector2>();
-            var aimScreenWorldPosition = _main.ScreenToWorldPoint(aimScreenPosition);
-            var targetDirection = aimScreenWorldPosition - transform.position;
+            var targetDirection = aimWorldPosition - transform.position;
             var angle = Mathf.Atan2(targetDirection.y, targetDirection.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
         }

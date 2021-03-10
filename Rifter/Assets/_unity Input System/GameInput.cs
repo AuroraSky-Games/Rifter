@@ -1,4 +1,4 @@
-// GENERATED AUTOMATICALLY FROM 'Assets/Unity Input System/GameInput.inputactions'
+// GENERATED AUTOMATICALLY FROM 'Assets/_unity Input System/GameInput.inputactions'
 
 using System;
 using System.Collections;
@@ -43,7 +43,7 @@ public class @GameInput : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""AIM"",
+                    ""name"": ""TargetPosition "",
                     ""type"": ""Value"",
                     ""id"": ""80c3d39c-cbe5-4aef-b651-55bbc164f6f8"",
                     ""expectedControlType"": ""Vector2"",
@@ -152,7 +152,7 @@ public class @GameInput : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""AIM"",
+                    ""action"": ""TargetPosition "",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -163,7 +163,7 @@ public class @GameInput : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""AIM"",
+                    ""action"": ""TargetPosition "",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -314,7 +314,7 @@ public class @GameInput : IInputActionCollection, IDisposable
         m_PlayerControls_Movement = m_PlayerControls.FindAction("Movement", throwIfNotFound: true);
         m_PlayerControls_AttackStart = m_PlayerControls.FindAction("AttackStart", throwIfNotFound: true);
         m_PlayerControls_AttackFinnish = m_PlayerControls.FindAction("AttackFinnish", throwIfNotFound: true);
-        m_PlayerControls_AIM = m_PlayerControls.FindAction("AIM", throwIfNotFound: true);
+        m_PlayerControls_TargetPosition = m_PlayerControls.FindAction("TargetPosition ", throwIfNotFound: true);
         m_PlayerControls_Reload = m_PlayerControls.FindAction("Reload", throwIfNotFound: true);
         m_PlayerControls_Block = m_PlayerControls.FindAction("Block", throwIfNotFound: true);
         // Inventory Controls
@@ -378,7 +378,7 @@ public class @GameInput : IInputActionCollection, IDisposable
     private readonly InputAction m_PlayerControls_Movement;
     private readonly InputAction m_PlayerControls_AttackStart;
     private readonly InputAction m_PlayerControls_AttackFinnish;
-    private readonly InputAction m_PlayerControls_AIM;
+    private readonly InputAction m_PlayerControls_TargetPosition;
     private readonly InputAction m_PlayerControls_Reload;
     private readonly InputAction m_PlayerControls_Block;
     public struct PlayerControlsActions
@@ -388,7 +388,7 @@ public class @GameInput : IInputActionCollection, IDisposable
         public InputAction @Movement => m_Wrapper.m_PlayerControls_Movement;
         public InputAction @AttackStart => m_Wrapper.m_PlayerControls_AttackStart;
         public InputAction @AttackFinnish => m_Wrapper.m_PlayerControls_AttackFinnish;
-        public InputAction @AIM => m_Wrapper.m_PlayerControls_AIM;
+        public InputAction @TargetPosition => m_Wrapper.m_PlayerControls_TargetPosition;
         public InputAction @Reload => m_Wrapper.m_PlayerControls_Reload;
         public InputAction @Block => m_Wrapper.m_PlayerControls_Block;
         public InputActionMap Get() { return m_Wrapper.m_PlayerControls; }
@@ -409,9 +409,9 @@ public class @GameInput : IInputActionCollection, IDisposable
                 @AttackFinnish.started -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnAttackFinnish;
                 @AttackFinnish.performed -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnAttackFinnish;
                 @AttackFinnish.canceled -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnAttackFinnish;
-                @AIM.started -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnAIM;
-                @AIM.performed -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnAIM;
-                @AIM.canceled -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnAIM;
+                @TargetPosition.started -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnTargetPosition;
+                @TargetPosition.performed -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnTargetPosition;
+                @TargetPosition.canceled -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnTargetPosition;
                 @Reload.started -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnReload;
                 @Reload.performed -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnReload;
                 @Reload.canceled -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnReload;
@@ -431,9 +431,9 @@ public class @GameInput : IInputActionCollection, IDisposable
                 @AttackFinnish.started += instance.OnAttackFinnish;
                 @AttackFinnish.performed += instance.OnAttackFinnish;
                 @AttackFinnish.canceled += instance.OnAttackFinnish;
-                @AIM.started += instance.OnAIM;
-                @AIM.performed += instance.OnAIM;
-                @AIM.canceled += instance.OnAIM;
+                @TargetPosition.started += instance.OnTargetPosition;
+                @TargetPosition.performed += instance.OnTargetPosition;
+                @TargetPosition.canceled += instance.OnTargetPosition;
                 @Reload.started += instance.OnReload;
                 @Reload.performed += instance.OnReload;
                 @Reload.canceled += instance.OnReload;
@@ -566,7 +566,7 @@ public class @GameInput : IInputActionCollection, IDisposable
         void OnMovement(InputAction.CallbackContext context);
         void OnAttackStart(InputAction.CallbackContext context);
         void OnAttackFinnish(InputAction.CallbackContext context);
-        void OnAIM(InputAction.CallbackContext context);
+        void OnTargetPosition(InputAction.CallbackContext context);
         void OnReload(InputAction.CallbackContext context);
         void OnBlock(InputAction.CallbackContext context);
     }

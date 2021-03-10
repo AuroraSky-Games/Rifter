@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class EnemyBrain : MonoBehaviour
+public class EnemyController : MonoBehaviour
 {
 
     [field: SerializeField] public UnityEvent<Vector2> MovementPressed { get; set; }

@@ -792,7 +792,7 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 702205984}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_TargetAssemblyTypeName: _Scripts.PlayerController, Assembly-CSharp
         m_MethodName: OnMove
         m_Mode: 0
         m_Arguments:
@@ -823,13 +823,13 @@ MonoBehaviour:
     m_ActionName: Menu Controls/New action
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 702205984}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: OnPointerMovement
-        m_Mode: 0
+      - m_Target: {fileID: 1298674907}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -18878,9 +18878,9 @@ MonoBehaviour:
   <OnReload>k__BackingField:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1829961408}
+      - m_Target: {fileID: 196498138}
         m_TargetAssemblyTypeName: WeaponAudioPlayer, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: PlayReloadSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
