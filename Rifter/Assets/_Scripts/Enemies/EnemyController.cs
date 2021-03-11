@@ -7,24 +7,43 @@ namespace _Scripts.Enemies
 {
     public class EnemyController : MonoBehaviour
     {
-
         [field: SerializeField] public GameObject Target { get; set; }
+        [field: SerializeField] public AIState CurrentState { get; private set; }
         [field: SerializeField] public UnityEvent<Vector2> OnTargetChange { get; set; }
-        
-        [field: SerializeField] public UnityEvent<Vector2> Run { get; set; }
-        [field: SerializeField] public UnityEvent<Vector2> Stop { get; set;}
+        [field: SerializeField] public UnityEvent<Vector2> OnRun { get; set; }
+        [field: SerializeField] public UnityEvent<Vector2> OnStop { get; set;}
         [field: SerializeField] public UnityEvent<float> OnVelocityChange { get; set; }
-        [field: SerializeField] public UnityEvent Attack { get; set; }
-        [field: SerializeField] public UnityEvent StopAttack { get; set; }
+        [field: SerializeField] public UnityEvent OnAttack { get; set; }
+        [field: SerializeField] public UnityEvent OnStopAttack { get; set; }
 
         private void Awake()
         {
             Target = FindObjectOfType<Player.Player>().gameObject;
         }
 
-        public void ChangeToState(AIState transitionPositiveResult)
+        private void Update()
         {
-            throw new NotImplementedException();
+            if (Target == null)
+            {
+                OnRun?.Invoke(Vector2.zero);
+            }
+            CurrentState.UpdateState();
+        }
+
+        public void Attack()
+        {
+            OnAttack?.Invoke();
+        }
+
+        public void Move(Vector2 movementDirection, Vector2 targetPosition)
+        {
+            OnRun?.Invoke(movementDirection);
+            OnTargetChange?.Invoke(targetPosition);
+        }
+
+        public void ChangeToState(AIState state)
+        {
+            CurrentState = state;
         }
     }
 }
