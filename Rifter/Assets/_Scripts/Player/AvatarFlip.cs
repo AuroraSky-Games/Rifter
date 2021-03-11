@@ -7,12 +7,12 @@ using UnityEngine;
 public class AvatarFlip : MonoBehaviour
 {
     protected SpriteRenderer spriteRenderer;
-
+    
     public void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
-
+    
     public void FaceDirection(Vector2 pointerInput)
     {
         var direction = (Vector3) pointerInput - transform.position;

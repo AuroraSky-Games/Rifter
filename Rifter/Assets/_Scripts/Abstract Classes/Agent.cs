@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace _Scripts
+namespace _Scripts.Abstract_Classes
 {
     public abstract class Agent : MonoBehaviour, IHittable, IAgent
     {

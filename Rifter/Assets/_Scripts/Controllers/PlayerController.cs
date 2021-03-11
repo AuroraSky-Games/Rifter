@@ -1,3 +1,4 @@
+using _Scripts.Managers;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -15,6 +16,7 @@ namespace _Scripts
         private Rigidbody2D _rigidbody2D;
         private Vector2 _movementInput = Vector2.zero;
         private Vector2 _pointerInput = Vector2.zero;
+        private SpriteRenderer _spriteRenderer;
 
         //Events
     
@@ -35,6 +37,7 @@ namespace _Scripts
 
         private void Start()
         {
+            _spriteRenderer = GetComponent<SpriteRenderer>();
             _rigidbody2D = GetComponent<Rigidbody2D>();
             _currentVelocity = AgentStats.startVelocity;
         }
@@ -80,6 +83,5 @@ namespace _Scripts
             return Mathf.Clamp(_currentVelocity, 0, AgentStats.maxSpeed);
         }
 
-    
     }
 }

@@ -1,8 +1,6 @@
-﻿using System;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 
-namespace _Scripts
+namespace _Scripts.Managers
 {
     public class SystemManager : MonoBehaviour
     {
