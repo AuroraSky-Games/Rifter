@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(SpriteRenderer))]
-public class AvatarFlip : MonoBehaviour
+public class AgentFlip : MonoBehaviour
 {
     protected SpriteRenderer spriteRenderer;
     

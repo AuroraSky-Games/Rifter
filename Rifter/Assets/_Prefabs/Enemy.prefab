@@ -149,6 +149,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1221274743}
   - component: {fileID: 1221274742}
+  - component: {fileID: 1221274744}
   m_Layer: 7
   m_Name: TransitionChase
   m_TagString: Untagged
@@ -182,9 +183,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83342e7a17f5782438af0ed5b2cc4feb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Decisions>k__BackingField: []
+  <Decisions>k__BackingField:
+  - {fileID: 1221274744}
   <PositiveResult>k__BackingField: {fileID: 1848921858}
   <NegativeResult>k__BackingField: {fileID: 0}
+--- !u!114 &1221274744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1221274741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 603a1eb42f7840a5872837a98cda4541, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Distance>k__BackingField: 3
 --- !u!1 &1261352550
 GameObject:
   m_ObjectHideFlags: 0
@@ -242,6 +257,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1848921859}
   - component: {fileID: 1848921858}
+  - component: {fileID: 1848921860}
   m_Layer: 7
   m_Name: ChaseState
   m_TagString: Untagged
@@ -277,10 +293,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cd3793cbe6b832469add23b3f367b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actions: []
+  actions:
+  - {fileID: 1848921860}
   transitions:
-  - {fileID: 454172987}
   - {fileID: 1883901022}
+--- !u!114 &1848921860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1848921857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 446bce8db4884d27b1bc4d714cd924e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1883901021
 GameObject:
   m_ObjectHideFlags: 0
@@ -291,6 +319,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1883901023}
   - component: {fileID: 1883901022}
+  - component: {fileID: 1883901024}
   m_Layer: 7
   m_Name: TransitionIdle
   m_TagString: Untagged
@@ -324,9 +353,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83342e7a17f5782438af0ed5b2cc4feb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Decisions>k__BackingField: []
+  <Decisions>k__BackingField:
+  - {fileID: 1883901024}
   <PositiveResult>k__BackingField: {fileID: 0}
   <NegativeResult>k__BackingField: {fileID: 707823000}
+--- !u!114 &1883901024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1883901021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 603a1eb42f7840a5872837a98cda4541, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Distance>k__BackingField: 5
 --- !u!1 &2113045829
 GameObject:
   m_ObjectHideFlags: 0
@@ -739,6 +782,7 @@ GameObject:
   - component: {fileID: 3641012494596942234}
   - component: {fileID: 3641012494596942235}
   - component: {fileID: 8751259230440607081}
+  - component: {fileID: 3641012495578619084}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Enemy
@@ -862,10 +906,34 @@ MonoBehaviour:
   <CurrentState>k__BackingField: {fileID: 707823000}
   <OnTargetChange>k__BackingField:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3515122939609619988}
+        m_TargetAssemblyTypeName: AgentFlip, Assembly-CSharp
+        m_MethodName: FaceDirection
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   <OnRun>k__BackingField:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3641012495578619084}
+        m_TargetAssemblyTypeName: _Scripts.Enemies.AgentMovement, Assembly-CSharp
+        m_MethodName: MoveAgent
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   <OnStop>k__BackingField:
     m_PersistentCalls:
       m_Calls: []
@@ -878,6 +946,20 @@ MonoBehaviour:
   <OnStopAttack>k__BackingField:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &3641012495578619084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3641012494596942213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 052c072a502951048b938b59e8741466, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <AgentStats>k__BackingField: {fileID: 11400000, guid: 29f147cfefde6be41ad3dac9aef4bac8,
+    type: 2}
 --- !u!1 &3641012494696325725
 GameObject:
   m_ObjectHideFlags: 0
@@ -1140,6 +1222,7 @@ GameObject:
   - component: {fileID: 3515122939609619988}
   - component: {fileID: 3515122939609619987}
   - component: {fileID: 3515122939609619986}
+  - component: {fileID: 3641012495578619085}
   m_Layer: 0
   m_Name: Demon Boss
   m_TagString: Untagged
@@ -1366,3 +1449,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pitchRandomness: 0.05
   stepClip: {fileID: 0}
+--- !u!114 &3641012495578619085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8837795989182504764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47527cc342ac1bd43b962f35f98fae82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
