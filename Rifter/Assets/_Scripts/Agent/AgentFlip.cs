@@ -13,9 +13,9 @@ public class AgentFlip : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
     
-    public void FaceDirection(Vector2 pointerInput)
+    public void FaceDirection(Vector2 pointOfInterest)
     {
-        var direction = (Vector3) pointerInput - transform.position;
+        var direction = (Vector3) pointOfInterest - transform.position;
         
         //If mouse pointer is on the left the cross product will be positive, and if on the right negative.
         var result = Vector3.Cross(Vector2.up,direction);

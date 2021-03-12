@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using _Scriptable_Objects;
 using _Scripts.Managers;
@@ -6,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using Random = UnityEngine.Random;
 
-namespace _Scripts.Weapons
+namespace _Scripts.Controllers
 {
 
     [RequireComponent(typeof(SpriteRenderer))]
@@ -15,7 +14,7 @@ namespace _Scripts.Weapons
         private int _ammo;
         private bool _isShooting = false;
         private Vector3 _aimScreenWorldPosition;
-        private GameInput _input;
+        private GameInput Input;
 
         [SerializeField] protected GameObject projectileDirection; 
         [SerializeField] private SOWeaponData soWeaponData;
@@ -38,16 +37,16 @@ namespace _Scripts.Weapons
 
         private void Awake()
         {
-            _input = GetInput;
             weaponRenderer = GetComponent<SpriteRenderer>();
         }
 
         private void Start()
         {
             Ammo = soWeaponData.AmmoCapacity;
-            _input.PlayerControls.Reload.performed += _ => Reload();
-            _input.PlayerControls.AttackStart.performed += _ => AttackPressed();
-            _input.PlayerControls.AttackFinnish.performed += _ => AttackReleased();
+            Input = GetInput;
+            Input.PlayerControls.Reload.performed += _ => Reload();
+            Input.PlayerControls.AttackStart.performed += _ => AttackPressed();
+            Input.PlayerControls.AttackFinnish.performed += _ => AttackReleased();
         }
         
         private void Update()

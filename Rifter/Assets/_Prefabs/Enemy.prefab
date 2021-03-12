@@ -102,6 +102,7 @@ GameObject:
   m_Component:
   - component: {fileID: 707823001}
   - component: {fileID: 707823000}
+  - component: {fileID: 8307349946777144713}
   m_Layer: 7
   m_Name: IdleState
   m_TagString: Untagged
@@ -136,9 +137,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cd3793cbe6b832469add23b3f367b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actions: []
+  actions:
+  - {fileID: 8307349946777144713}
   transitions:
   - {fileID: 1221274742}
+--- !u!114 &8307349946777144713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 707822999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48376c2ab5721b343a1613fc66625382, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1221274741
 GameObject:
   m_ObjectHideFlags: 0
@@ -199,7 +213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 603a1eb42f7840a5872837a98cda4541, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Distance>k__BackingField: 3
+  <Distance>k__BackingField: 6.35
 --- !u!1 &1261352550
 GameObject:
   m_ObjectHideFlags: 0

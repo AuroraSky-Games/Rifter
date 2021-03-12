@@ -1,4 +1,4 @@
-﻿using _Scripts.Weapons;
+﻿using _Scripts.Controllers;
 using UnityEngine;
 
 namespace _Scripts.Player
