@@ -7,11 +7,7 @@ namespace _Scripts.Player
 {
     public class Player : Agent
     {
-        public override void PerformAttack()
-        {
-            
-        }
-        
+
         public override void GetHit(int damage, GameObject damageDealer)
         {
             if (_dead == false)

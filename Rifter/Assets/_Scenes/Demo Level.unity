@@ -867,6 +867,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1db1d7fd6c84c9180d854c7c8b16eae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Health>k__BackingField: 0
   <AgentStats>k__BackingField: {fileID: 11400000, guid: 285e7f9230a3f5a4da308f291a93ea18,
     type: 2}
   <OnGetHit>k__BackingField:
@@ -875,6 +876,7 @@ MonoBehaviour:
   <OnDie>k__BackingField:
     m_PersistentCalls:
       m_Calls: []
+  _dead: 0
 --- !u!1 &709864463
 GameObject:
   m_ObjectHideFlags: 0
@@ -21370,24 +21372,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8751259230440607081, guid: e13dfb2eec2b1854cabc971d9d0d679e,
+        type: 3}
+      propertyPath: <OnStopAttack>k__BackingField.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8751259230440607081, guid: e13dfb2eec2b1854cabc971d9d0d679e,
+        type: 3}
+      propertyPath: <OnStopAttack>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8751259230440607081, guid: e13dfb2eec2b1854cabc971d9d0d679e,
+        type: 3}
+      propertyPath: <OnStopAttack>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e13dfb2eec2b1854cabc971d9d0d679e, type: 3}
---- !u!1 &3641012495578619081 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3641012494596942213, guid: e13dfb2eec2b1854cabc971d9d0d679e,
-    type: 3}
-  m_PrefabInstance: {fileID: 3641012495578619080}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &3641012495578619082
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3641012495578619081}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 099f77e7c9514566889d29adbe4129c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <AttackDelay>k__BackingField: 1

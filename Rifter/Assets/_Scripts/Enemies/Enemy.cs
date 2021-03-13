@@ -15,7 +15,7 @@ namespace _Scripts.Enemies
             EnemyAttack.GetComponent<EnemyAttack>();
         }
 
-        public override void PerformAttack()
+        public  void PerformAttack()
         {
             if ( _dead == false)
             {
@@ -38,8 +38,6 @@ namespace _Scripts.Enemies
             }
         }
         
-        
-
         protected override IEnumerator WaitToDie()
         {
             yield return new WaitForSeconds(.53f);

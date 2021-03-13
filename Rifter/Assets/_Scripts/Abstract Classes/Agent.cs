@@ -21,8 +21,6 @@ namespace _Scripts.Abstract_Classes
 
         public abstract void GetHit(int damage, GameObject damageDealer);
 
-        public abstract void PerformAttack();
-
         protected abstract IEnumerator WaitToDie();
     }
 }
