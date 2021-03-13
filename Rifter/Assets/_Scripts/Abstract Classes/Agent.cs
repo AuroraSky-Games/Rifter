@@ -6,24 +6,22 @@ namespace _Scripts.Abstract_Classes
 {
     public abstract class Agent : MonoBehaviour, IHittable, IAgent
     {
-        public int Health { get; private set; }
-        [field: SerializeField] private SOAgentStats AgentStats { get; set; }
+        [field: SerializeField] public int Health { get; set; }
+        [field: SerializeField] protected SOAgentStats AgentStats { get; set; }
         [field: SerializeField] public UnityEvent OnGetHit { get; set; }
         [field: SerializeField] public UnityEvent OnDie { get; set; }
+        
+        public bool _dead = false;
+
         
         private void Start()
         {
             Health = AgentStats.MaxHealth;
         }
-        
-        public void GetHit(int damage, GameObject damageDealer)
-        {
-            Health--;
-            OnGetHit?.Invoke();
-            if (Health > 0) return;
-            OnDie?.Invoke();
-            StartCoroutine(WaitToDie());
-        }
+
+        public abstract void GetHit(int damage, GameObject damageDealer);
+
+        public abstract void PerformAttack();
 
         protected abstract IEnumerator WaitToDie();
     }

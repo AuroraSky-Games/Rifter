@@ -21370,93 +21370,24 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8751259230440607081, guid: e13dfb2eec2b1854cabc971d9d0d679e,
-        type: 3}
-      propertyPath: <OnRun>k__BackingField.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8751259230440607081, guid: e13dfb2eec2b1854cabc971d9d0d679e,
-        type: 3}
-      propertyPath: <OnRun>k__BackingField.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8751259230440607081, guid: e13dfb2eec2b1854cabc971d9d0d679e,
-        type: 3}
-      propertyPath: <OnVelocityChange>k__BackingField.m_PersistentCalls.m_Calls.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8751259230440607081, guid: e13dfb2eec2b1854cabc971d9d0d679e,
-        type: 3}
-      propertyPath: <OnRun>k__BackingField.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 3641012495578619083}
-    - target: {fileID: 8751259230440607081, guid: e13dfb2eec2b1854cabc971d9d0d679e,
-        type: 3}
-      propertyPath: <OnRun>k__BackingField.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8751259230440607081, guid: e13dfb2eec2b1854cabc971d9d0d679e,
-        type: 3}
-      propertyPath: <OnRun>k__BackingField.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8751259230440607081, guid: e13dfb2eec2b1854cabc971d9d0d679e,
-        type: 3}
-      propertyPath: <OnVelocityChange>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8751259230440607081, guid: e13dfb2eec2b1854cabc971d9d0d679e,
-        type: 3}
-      propertyPath: <OnVelocityChange>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 3641012495578619089}
-    - target: {fileID: 8751259230440607081, guid: e13dfb2eec2b1854cabc971d9d0d679e,
-        type: 3}
-      propertyPath: <OnVelocityChange>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8751259230440607081, guid: e13dfb2eec2b1854cabc971d9d0d679e,
-        type: 3}
-      propertyPath: <OnVelocityChange>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: AnimatePlayer
-      objectReference: {fileID: 0}
-    - target: {fileID: 8751259230440607081, guid: e13dfb2eec2b1854cabc971d9d0d679e,
-        type: 3}
-      propertyPath: <OnRun>k__BackingField.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: _Scripts.Enemies.AgentMovement, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 8751259230440607081, guid: e13dfb2eec2b1854cabc971d9d0d679e,
-        type: 3}
-      propertyPath: <OnVelocityChange>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: AvatarAnimations, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 8751259230440607081, guid: e13dfb2eec2b1854cabc971d9d0d679e,
-        type: 3}
-      propertyPath: <OnRun>k__BackingField.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8751259230440607081, guid: e13dfb2eec2b1854cabc971d9d0d679e,
-        type: 3}
-      propertyPath: <OnVelocityChange>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e13dfb2eec2b1854cabc971d9d0d679e, type: 3}
---- !u!1 &3641012495578619083 stripped
+--- !u!1 &3641012495578619081 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 8837795989182504764, guid: e13dfb2eec2b1854cabc971d9d0d679e,
+  m_CorrespondingSourceObject: {fileID: 3641012494596942213, guid: e13dfb2eec2b1854cabc971d9d0d679e,
     type: 3}
   m_PrefabInstance: {fileID: 3641012495578619080}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3641012495578619089 stripped
+--- !u!114 &3641012495578619082
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3515122939609619989, guid: e13dfb2eec2b1854cabc971d9d0d679e,
-    type: 3}
-  m_PrefabInstance: {fileID: 3641012495578619080}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3641012495578619083}
+  m_GameObject: {fileID: 3641012495578619081}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95318f7fe9de63b4188063eee252b477, type: 3}
+  m_Script: {fileID: 11500000, guid: 099f77e7c9514566889d29adbe4129c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <AttackDelay>k__BackingField: 1
