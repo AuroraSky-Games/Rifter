@@ -15,7 +15,7 @@ namespace _Scripts.Player
                 Health--;
                 Debug.Log("Player Hit");
                 OnGetHit?.Invoke();
-                if (Health > 0)
+                if (Health <= 0)
                 { 
                     _dead = true;
                     OnDie?.Invoke();

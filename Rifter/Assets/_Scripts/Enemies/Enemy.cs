@@ -8,28 +8,28 @@ namespace _Scripts.Enemies
     public class Enemy : Agent
     {
         
-        public EnemyAttack EnemyAttack { get; set; }
+        // public EnemyMeleeAttack EnemyAttack { get; set; }
         
         private void Awake()
         {
-            EnemyAttack.GetComponent<EnemyAttack>();
+            // EnemyAttack.GetComponent<EnemyMeleeAttack>();
         }
 
-        public  void PerformAttack()
-        {
-            if ( _dead == false)
-            {
-                EnemyAttack.Attack(AgentStats.Damage);
-            }
-        }
+        // public void PerformAttack()
+        // {
+        //     if ( _dead == false)
+        //     {
+        //         EnemyAttack.Attack(AgentStats.Damage);
+        //     }
+        // }
         
         public override void GetHit(int damage, GameObject damageDealer)
         {
             if (_dead == false)
             {
                 Health--;
-                OnGetHit?.Invoke();
-                if (Health > 0)
+                //OnGetHit?.Invoke();
+                if (Health <= 0)
                 { 
                     _dead = true;
                     OnDie?.Invoke();

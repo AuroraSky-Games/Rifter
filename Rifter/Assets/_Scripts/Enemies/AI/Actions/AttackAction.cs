@@ -11,6 +11,7 @@ namespace _Scripts.Enemies.AI.Actions
             EnemyController.Move(AIMovementData.Direction, AIMovementData.PointOfInterest);
             AIActionData.Attack = true;
             EnemyController.Attack();
+            AIActionData.Arrived = true;
         }
     }
 }
