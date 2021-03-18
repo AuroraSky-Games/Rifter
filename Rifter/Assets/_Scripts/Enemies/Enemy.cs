@@ -29,6 +29,7 @@ namespace _Scripts.Enemies
             {
                 Health--;
                 //OnGetHit?.Invoke();
+                //Debug.Log("Enemy Hit Test");
                 if (Health <= 0)
                 { 
                     _dead = true;
@@ -43,8 +44,15 @@ namespace _Scripts.Enemies
             yield return new WaitForSeconds(.53f);
             Destroy(gameObject);
         }
-
         
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.tag.Equals("Player"))
+            {
+                var hittable = collision.GetComponent<IHittable>();
+                hittable?.GetHit(AgentStats.Damage, gameObject);
+            }
+        }
 
     }
 }

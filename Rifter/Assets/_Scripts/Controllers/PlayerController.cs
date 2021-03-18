@@ -82,6 +82,5 @@ namespace _Scripts
 
             return Mathf.Clamp(_currentVelocity, 0, AgentStats.maxSpeed);
         }
-
     }
 }

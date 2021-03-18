@@ -902,6 +902,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e736057575a8e0c4783f433268645959, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Health>k__BackingField: 0
   <AgentStats>k__BackingField: {fileID: 11400000, guid: 29f147cfefde6be41ad3dac9aef4bac8,
     type: 2}
   <OnGetHit>k__BackingField:
@@ -935,7 +936,6 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   _dead: 0
-  <EnemyAttack>k__BackingField: {fileID: 0}
 --- !u!70 &3641012494596942235
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -964,6 +964,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b369fe242801be64eac116fcfbb0d3ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <AgentStats>k__BackingField: {fileID: 11400000, guid: 29f147cfefde6be41ad3dac9aef4bac8,
+    type: 2}
   <Target>k__BackingField: {fileID: 0}
   <CurrentState>k__BackingField: {fileID: 707823000}
   <OnTargetChange>k__BackingField:

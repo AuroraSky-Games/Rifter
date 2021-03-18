@@ -1,4 +1,5 @@
 using System;
+using _Scripts;
 using _Scripts.Enemies.AI;
 using _Scripts.Player;
 using UnityEngine;
@@ -7,6 +8,7 @@ using UnityEngine.Events;
 
 public class EnemyController : MonoBehaviour
 {
+    [field: SerializeField] protected SOAgentStats AgentStats { get; set; }
     [field: SerializeField] public GameObject Target { get; set; }
     [field: SerializeField] public AIState CurrentState { get; private set; }
     [field: SerializeField] public UnityEvent<Vector2> OnTargetChange { get; set; }
@@ -45,5 +47,6 @@ public class EnemyController : MonoBehaviour
     {
         CurrentState = state;
     }
+
 }
 

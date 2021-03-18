@@ -16,7 +16,7 @@ namespace _Scripts.Player
                 Debug.Log("Player Hit");
                 OnGetHit?.Invoke();
                 if (Health <= 0)
-                { 
+                {
                     _dead = true;
                     OnDie?.Invoke();
                     StartCoroutine(WaitToDie());
