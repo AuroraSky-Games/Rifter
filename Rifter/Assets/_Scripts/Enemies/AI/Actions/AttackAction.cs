@@ -6,12 +6,15 @@ namespace _Scripts.Enemies.AI.Actions
     {
         public override void TakeAction()
         {
-            AIMovementData.Direction = Vector2.zero;
-            AIMovementData.PointOfInterest = EnemyController.Target.transform.position;
-            EnemyController.Move(AIMovementData.Direction, AIMovementData.PointOfInterest);
-            AIActionData.Attack = true;
-            EnemyController.Attack();
-            AIActionData.Arrived = true;
+            if (EnemyController.Target != null)
+            {
+                AIMovementData.Direction = Vector2.zero;
+                AIMovementData.PointOfInterest = EnemyController.Target.transform.position;
+                EnemyController.Move(AIMovementData.Direction, AIMovementData.PointOfInterest);
+                AIActionData.Attack = true;
+                EnemyController.Attack();
+                AIActionData.Arrived = true; 
+            }
         }
     }
 }

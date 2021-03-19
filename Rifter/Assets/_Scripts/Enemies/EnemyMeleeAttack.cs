@@ -9,6 +9,7 @@ namespace _Scripts.Enemies
             if (WaitForNextAttack == false)
             {
                 var hittable = GetTarget().GetComponent<IHittable>();
+                Debug.Log(gameObject);
                 hittable?.GetHit(damage, gameObject);
                 StartCoroutine(WaitForNextAttackCoroutine());
             }

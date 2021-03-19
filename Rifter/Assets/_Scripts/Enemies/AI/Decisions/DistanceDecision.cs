@@ -9,17 +9,20 @@ namespace _Scripts.Enemies.AI.Decisions
         
         public override bool MakeADecision()
         {
-            if (Vector3.Distance(EnemyController.Target.transform.position, transform.position) < Distance)
+            if (EnemyController.Target != null)
             {
-                if (AIActionData.TargetSpotted == false)
+                if (Vector3.Distance(EnemyController.Target.transform.position, transform.position) < Distance)
                 {
+                    if (AIActionData.TargetSpotted == false)
+                    {
 
-                    AIActionData.TargetSpotted = true;
+                        AIActionData.TargetSpotted = true;
+                    }
                 }
-            }
-            else
-            {
-                AIActionData.TargetSpotted = false;
+                else
+                {
+                    AIActionData.TargetSpotted = false;
+                }
             }
             
             return AIActionData.TargetSpotted;

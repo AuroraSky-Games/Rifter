@@ -10,14 +10,14 @@ namespace _Scripts.Player
 
         public override void GetHit(int damage, GameObject damageDealer)
         {
-            if (_dead == false)
+            if (dead == false)
             {
                 Health--;
                 Debug.Log("Player Hit");
                 OnGetHit?.Invoke();
                 if (Health <= 0)
                 {
-                    _dead = true;
+                    dead = true;
                     OnDie?.Invoke();
                     StartCoroutine(WaitToDie());
                 }

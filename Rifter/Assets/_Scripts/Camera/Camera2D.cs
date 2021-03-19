@@ -19,6 +19,7 @@ namespace _Scripts
 
         [Header("Mode")] [SerializeField] private CameraMode cameraMode = CameraMode.Update;
 
+        
         private void Update()
         {
             if (cameraMode == CameraMode.Update)
@@ -47,11 +48,13 @@ namespace _Scripts
         private void FollowTarget()
         {
 
-            Vector3 desiredPosition = new Vector3(targetTransform.position.x + offset.x,
-                targetTransform.position.y + offset.y, transform.position.z);
+            if (targetTransform != null)
+            {
+                Vector3 desiredPosition = new Vector3(targetTransform.position.x + offset.x,
+                    targetTransform.position.y + offset.y, transform.position.z);
 
-            transform.position = desiredPosition;
+                transform.position = desiredPosition;
+            }
         }
-        
     }
 }

@@ -8,16 +8,21 @@ namespace _Scripts.Enemies
     public class Enemy : Agent
     {
         
-        // public EnemyMeleeAttack EnemyAttack { get; set; }
+        public EnemyMeleeAttack EnemyAttack { get; set; }
         
         private void Awake()
         {
-            // EnemyAttack.GetComponent<EnemyMeleeAttack>();
+
+            // if (EnemyAttack == null)
+            // {
+            //     EnemyAttack.GetComponent<EnemyMeleeAttack>();
+            // }
+            
         }
 
         // public void PerformAttack()
         // {
-        //     if ( _dead == false)
+        //     if (dead == false)
         //     {
         //         EnemyAttack.Attack(AgentStats.Damage);
         //     }
@@ -25,14 +30,14 @@ namespace _Scripts.Enemies
         
         public override void GetHit(int damage, GameObject damageDealer)
         {
-            if (_dead == false)
+            if (dead == false)
             {
                 Health--;
-                //OnGetHit?.Invoke();
+                OnGetHit?.Invoke();
                 //Debug.Log("Enemy Hit Test");
                 if (Health <= 0)
                 { 
-                    _dead = true;
+                    dead = true;
                     OnDie?.Invoke();
                     StartCoroutine(WaitToDie());
                 }

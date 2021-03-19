@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 namespace _Scripts.Abstract_Classes
 {
@@ -11,8 +12,7 @@ namespace _Scripts.Abstract_Classes
         [field: SerializeField] public UnityEvent OnGetHit { get; set; }
         [field: SerializeField] public UnityEvent OnDie { get; set; }
         
-        public bool _dead = false;
-
+        public bool dead;
         
         private void Start()
         {
