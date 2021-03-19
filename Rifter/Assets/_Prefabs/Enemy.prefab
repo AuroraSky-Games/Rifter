@@ -842,7 +842,6 @@ GameObject:
   - component: {fileID: 3641012494596942235}
   - component: {fileID: 8751259230440607081}
   - component: {fileID: 3641012495578619084}
-  - component: {fileID: 3641012495578619082}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Enemy
@@ -935,7 +934,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _dead: 0
+  dead: 0
 --- !u!70 &3641012494596942235
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -946,7 +945,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.0771091}
@@ -1006,19 +1005,7 @@ MonoBehaviour:
       m_Calls: []
   <OnAttack>k__BackingField:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3641012494596942234}
-        m_TargetAssemblyTypeName: _Scripts.Enemies.Enemy, Assembly-CSharp
-        m_MethodName: PerformAttack
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   <OnStopAttack>k__BackingField:
     m_PersistentCalls:
       m_Calls: []
@@ -1036,19 +1023,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <AgentStats>k__BackingField: {fileID: 11400000, guid: 29f147cfefde6be41ad3dac9aef4bac8,
     type: 2}
---- !u!114 &3641012495578619082
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3641012494596942213}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 099f77e7c9514566889d29adbe4129c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <AttackDelay>k__BackingField: 1
 --- !u!1 &3641012494696325725
 GameObject:
   m_ObjectHideFlags: 0
