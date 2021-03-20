@@ -15,6 +15,6 @@ MonoBehaviour:
   <MaxHealth>k__BackingField: 3
   <Damage>k__BackingField: 1
   startVelocity: 2
-  maxSpeed: 3
+  maxSpeed: 4.5
   acceleration: 50
   deAcceleration: 50
