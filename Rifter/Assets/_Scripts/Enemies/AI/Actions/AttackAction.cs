@@ -10,7 +10,7 @@ namespace _Scripts.Enemies.AI.Actions
             {
                 AIMovementData.Direction = Vector2.zero;
                 AIMovementData.PointOfInterest = EnemyController.Target.transform.position;
-                EnemyController.Move(AIMovementData.Direction, AIMovementData.PointOfInterest);
+                EnemyController.MovementData(AIMovementData.Direction, AIMovementData.PointOfInterest);
                 AIActionData.Attack = true;
                 EnemyController.Attack();
                 AIActionData.Arrived = true; 

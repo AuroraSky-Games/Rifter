@@ -15,7 +15,7 @@ namespace _Scripts.Enemies.AI.Actions
                 var direction = position - transform.position;
                 AIMovementData.Direction = direction.normalized;
                 AIMovementData.PointOfInterest = position;
-                EnemyController.Move(AIMovementData.Direction, AIMovementData.PointOfInterest);
+                EnemyController.MovementData(AIMovementData.Direction, AIMovementData.PointOfInterest);
             }
         }
     }

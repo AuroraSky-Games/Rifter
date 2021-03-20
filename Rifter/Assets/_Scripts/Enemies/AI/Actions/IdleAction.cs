@@ -9,6 +9,6 @@ public class IdleAction : AIAction
     {
         AIMovementData.Direction = Vector2.zero;
         AIMovementData.PointOfInterest = transform.position;
-        EnemyController.Move(AIMovementData.Direction, AIMovementData.PointOfInterest);
+        EnemyController.MovementData(AIMovementData.Direction, AIMovementData.PointOfInterest);
     }
 }

@@ -16,7 +16,6 @@ namespace _Scripts
         private Rigidbody2D _rigidbody2D;
         private Vector2 _movementInput = Vector2.zero;
         private Vector2 _pointerInput = Vector2.zero;
-        private SpriteRenderer _spriteRenderer;
 
         //Events
     
@@ -37,7 +36,6 @@ namespace _Scripts
 
         private void Start()
         {
-            _spriteRenderer = GetComponent<SpriteRenderer>();
             _rigidbody2D = GetComponent<Rigidbody2D>();
             _currentVelocity = AgentStats.startVelocity;
         }

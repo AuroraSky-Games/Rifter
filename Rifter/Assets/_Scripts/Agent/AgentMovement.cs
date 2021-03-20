@@ -18,6 +18,7 @@ namespace _Scripts.Enemies
         {
             _rigidbody2D.velocity = movementInput.normalized * AgentStats.startVelocity;
         }
+        
     
     }
 }
