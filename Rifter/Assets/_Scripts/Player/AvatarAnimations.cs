@@ -6,16 +6,17 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class AvatarAnimations : MonoBehaviour
 {
-    private Animator avatarAnimator;
-
-    private void Start()
+    private Animator _avatarAnimator;
+    private static readonly int run = Animator.StringToHash("Run");
+    
+    private void Awake()
     {
-        avatarAnimator = GetComponent<Animator>();
+        _avatarAnimator = GetComponent<Animator>();
     }
 
     private void SetWalkAnimation(bool val)
     {
-        avatarAnimator.SetBool("Run", val);
+        _avatarAnimator.SetBool(run, val);
     }
 
     public void AnimatePlayer(float velocity)

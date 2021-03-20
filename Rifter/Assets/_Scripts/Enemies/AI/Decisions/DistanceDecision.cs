@@ -5,7 +5,7 @@ namespace _Scripts.Enemies.AI.Decisions
 {
     public class DistanceDecision : AIDecision
     {
-        [field: SerializeField] [field: Range(0.1f, 10)] public float Distance { get; set; } = 5;
+        [field: SerializeField] [field: Range(0.1f, 100)] public float Distance { get; set; } = 5;
         
         public override bool MakeADecision()
         {
@@ -29,14 +29,14 @@ namespace _Scripts.Enemies.AI.Decisions
             
         }
 
-        // protected void OnDrawGizmos()
-        // {
-        //     if (UnityEditor.Selection.activeObject == gameObject)
-        //     {
-        //         Gizmos.color = Color.green;
-        //         Gizmos.DrawWireSphere(transform.position, Distance);
-        //         Gizmos.color = Color.white;
-        //     }
-        // }
+        protected void OnDrawGizmos()
+        {
+            if (UnityEditor.Selection.activeObject == gameObject)
+            {
+                Gizmos.color = Color.green;
+                Gizmos.DrawWireSphere(transform.position, Distance);
+                Gizmos.color = Color.white;
+            }
+        }
     }
 }
