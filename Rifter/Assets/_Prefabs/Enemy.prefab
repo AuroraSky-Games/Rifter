@@ -841,7 +841,6 @@ GameObject:
   - component: {fileID: 3641012494596942234}
   - component: {fileID: 3641012494596942235}
   - component: {fileID: 8751259230440607081}
-  - component: {fileID: 3641012495578619084}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Enemy
@@ -985,8 +984,8 @@ MonoBehaviour:
   <OnRun>k__BackingField:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3641012495578619084}
-        m_TargetAssemblyTypeName: _Scripts.Enemies.AgentMovement, Assembly-CSharp
+      - m_Target: {fileID: 8751259230440607081}
+        m_TargetAssemblyTypeName: EnemyController, Assembly-CSharp
         m_MethodName: MoveAgent
         m_Mode: 0
         m_Arguments:
@@ -1002,27 +1001,25 @@ MonoBehaviour:
       m_Calls: []
   <OnVelocityChange>k__BackingField:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3515122939609619989}
+        m_TargetAssemblyTypeName: AvatarAnimations, Assembly-CSharp
+        m_MethodName: AnimatePlayer
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   <OnAttack>k__BackingField:
     m_PersistentCalls:
       m_Calls: []
   <OnStopAttack>k__BackingField:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &3641012495578619084
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3641012494596942213}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 052c072a502951048b938b59e8741466, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <AgentStats>k__BackingField: {fileID: 11400000, guid: 29f147cfefde6be41ad3dac9aef4bac8,
-    type: 2}
 --- !u!1 &3641012494696325725
 GameObject:
   m_ObjectHideFlags: 0
