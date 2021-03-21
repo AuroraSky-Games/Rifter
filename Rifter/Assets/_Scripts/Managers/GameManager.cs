@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
 
     private void SetCourserIcon()
     {
-        Cursor.SetCursor(cursorTexture, new Vector2(cursorTexture.width/2f, cursorTexture.height/2f),
+        Cursor.SetCursor(cursorTexture, new Vector2(cursorTexture.width/2f*2, cursorTexture.height/2f*2),
             CursorMode.Auto);
     }
 }

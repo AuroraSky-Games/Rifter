@@ -13,6 +13,8 @@ namespace _Scripts.Enemies
         private void Awake()
         {
 
+            Health = AgentStats.MaxHealth;
+            
             // if (EnemyAttack == null)
             // {
             //     EnemyAttack.GetComponent<EnemyMeleeAttack>();
