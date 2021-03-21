@@ -48,6 +48,7 @@ namespace _Scripts.Enemies
         
         protected override IEnumerator WaitToDie()
         {
+            //.53f
             yield return new WaitForSeconds(.53f);
             Destroy(gameObject);
         }
