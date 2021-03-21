@@ -25,11 +25,12 @@ public class EnemyController : MonoBehaviour
 
     private void Awake()
     {
-        Target = FindObjectOfType<Player>().gameObject; 
+        
     }
     
     private void Start()
     {
+        Target = FindObjectOfType<Player>().gameObject; 
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _currentVelocity = AgentStats.startVelocity;
     }

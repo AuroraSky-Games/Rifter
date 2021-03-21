@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using _Scripts.Abstract_Classes;
 using UnityEngine;
 using UnityEngine.Events;
@@ -7,6 +8,19 @@ namespace _Scripts.Player
 {
     public class Player : Agent
     {
+
+        [field: SerializeField] public UIHealth uiHealth { get; set; }
+
+        private void Start()
+        {
+            
+            uiHealth.Initialize(Health);
+        }
+
+        private void Update()
+        {
+            uiHealth.UpdateUI(Health);
+        }
 
         public override void GetHit(int damage, GameObject damageDealer)
         {
