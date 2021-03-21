@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c9613e173d01514e9f61223c94cd80a, type: 3}
   m_Name: DemonLord Stats
   m_EditorClassIdentifier: 
-  <MaxHealth>k__BackingField: 3
+  <MaxHealth>k__BackingField: 5
   <Damage>k__BackingField: 1
   startVelocity: 2
   maxSpeed: 4.5
