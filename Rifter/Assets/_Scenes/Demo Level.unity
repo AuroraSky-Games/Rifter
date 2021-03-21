@@ -4343,8 +4343,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -235.9142}
-  m_SizeDelta: {x: 0, y: -471.8359}
+  m_AnchoredPosition: {x: 23, y: -235.92}
+  m_SizeDelta: {x: -485.5994, y: -471.8359}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &902607390
 MonoBehaviour:
@@ -19421,6 +19421,7 @@ MonoBehaviour:
   bulletDirection: {fileID: 1907007929}
   weaponRenderer: {fileID: 0}
   reloadCoroutine: 0
+  <uiAmmo>k__BackingField: {fileID: 18521531}
   <OnShoot>k__BackingField:
     m_PersistentCalls:
       m_Calls:

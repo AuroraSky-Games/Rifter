@@ -22,12 +22,14 @@ namespace _Scripts.Controllers
         [SerializeField] private Transform bulletDirection;
         [SerializeField] protected SpriteRenderer weaponRenderer;
         [SerializeField] protected bool reloadCoroutine = false;
+        [field: SerializeField] public UIAmmo uiAmmo { get; set; }
 
         //Unity Events
         
         [field: SerializeField] private UnityEvent OnShoot { get; set; }
         [field: SerializeField] private UnityEvent OnShootNoAmmo { get; set; }
         [field: SerializeField] private UnityEvent OnReload { get; set; }
+        
 
         private int Ammo
         {
@@ -54,6 +56,7 @@ namespace _Scripts.Controllers
             _aimScreenWorldPosition = SystemManager.GetMousePosition;
             PlayerAim(_aimScreenWorldPosition);
             PlayerShoot();
+            uiAmmo.UpdateBulletsText(Ammo);
         }
 
         private void PlayerAim(Vector3 aimWorldPosition)
